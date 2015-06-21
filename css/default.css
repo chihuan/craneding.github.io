@@ -41,6 +41,10 @@ ol, ul {
     border-color: #f9f9f9;
 }
 
+.bs-docs-container .row {
+    padding: 0 5px;
+}
+
 .bs-docs-header, .bs-docs-masthead {
     background-repeat: repeat-x;
 
