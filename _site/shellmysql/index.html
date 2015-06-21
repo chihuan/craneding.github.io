@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>404错误 | 丁小样同学</title>
+    <title>shell执行mysql的SQL语句 | 丁小样同学</title>
 
     <meta name="author" content="丁小样">
     
@@ -47,25 +47,24 @@
     <div class="container">
         <h1>craneding.github.io</h1>
 
-        <p>丁小样同学欢迎!</p>
+        <p>丁小样博客</p>
     </div>
 </div>
 
-<div id="content">
-    <div class="container bs-docs-container">
+<div class="container bs-docs-container">
     <div class="row">
-        <h1 class="page-header" id="download">404错误</h1>
+	<h1 class="page-header" id="download">shell执行mysql的SQL语句</h1>
+	<h3 id="mysqlsql">在脚本中执行mysql的SQL语句</h3>
 
-        <div role="alert" class="alert alert-danger">
-            <span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span>
-            <span class="sr-only">Error:</span>
-            网页未找到!
-        </div>
+<pre><code>mysql &lt;&lt;EOF    
+  select * from tableA a, tableB b   
+  where a.id = b.id;  
+EOF 
+</code></pre>
+
+
     </div>
 </div>
-
-</div>
-
 
 
 </body>
