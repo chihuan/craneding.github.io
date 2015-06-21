@@ -1,0 +1,11 @@
+
+permalink: /:title
+highlighter: pygments
+
+title: 丁小样同学
+url: http://craneding.github.io
+description: 个人博客
+author :
+  name : 丁小样
+  email : crane.ding@163.com
+domain: craneding.github.io
