@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      mysqldump命令的用法
-category: blog
+category: blogs
 description: 学会使用mysqldump命令进行数据结构和数据的导出。
 ---
 

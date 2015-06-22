@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/default.css" type="text/css" />
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -29,19 +29,37 @@
         </div>
         <nav class="collapse navbar-collapse bs-navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/blogs/">博客</a>
+                {% for link in site.nav %}
+                {% assign active = nil %}
+                {% if page.url == link.url%}
+                {% assign active = 'active' %}
+                {% endif %}
+                <li class="{{ active }}">
+                    <a href="{{ link.url }}">{{ link.text }}</a>{{ indicator }}
                 </li>
-                <li>
-                    <a href="/works/">作品</a>
-                </li>
-                <li>
-                    <a href="/abouts/">关于</a>
-                </li>
+                {% endfor %}
             </ul>
         </nav>
     </div>
 </header>
+
+{% if page.ptitle %}
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>{{ page.ptitle }}</h1>
+
+        <p>{{ page.pdescription }}</p>
+    </div>
+</div>
+{% else %}
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>{{ site.domain }}</h1>
+
+        <p>丁小样同学欢迎您！</p>
+    </div>
+</div>
+{% endif %}
 
 {{ content }}
 

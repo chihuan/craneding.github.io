@@ -1,0 +1,33 @@
+---
+layout: home
+---
+
+<div class="container-fluid bs-docs-container index-content">
+    <div class="row">
+        <div style='height:30px;'>&nbsp;</div>
+        {% for post in paginator.posts %}
+        <div class="jumbotron">
+            <h2>{{ post.title }}</h2>
+            <p class="date">日期：{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</p>
+            <p class="description">{{ post.description }}</p>
+            <p>
+                <a href="{{ post.url }}" class="btn btn-primary" role="button">阅读</a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% if paginator.total_pages > 1 %}
+<nav style="margin: 0 auto; text-align: center;">
+    <ul class="pagination">
+        {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <li class="active"><a href="javascript:void(0);">{{ page }} <span class="sr-only">(current)</span></a></li>
+        {% else %}
+        <li><a href="/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}

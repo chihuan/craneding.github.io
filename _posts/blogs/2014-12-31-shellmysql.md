@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      shell执行mysql的SQL语句
-category: blog
+category: blogs
 description: 怎样在脚本中执行myql命令，这或许对定时任务很有作用。
 ---
 

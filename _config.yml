@@ -1,11 +1,27 @@
 
-permalink: /:title
+permalink: /:year/:month/:day/:title
 highlighter: pygments
+paginate: 8
+paginate_path: /page:num
 
 title: 丁小样同学
 url: http://craneding.github.io
-description: 个人博客
+description: 丁小样同学个人博客
+keywords: 丁小样同学,个人博客,技术,java
 author :
-  name : 丁小样
+  name : 丁小样同学
   email : crane.ding@163.com
 domain: craneding.github.io
+
+#Nav config
+nav:
+  - text: 首页
+    url: /index.html
+  - text: 分类目录
+    url: /navigations/categories.html
+  - text: 文章归档
+    url: /navigations/archives.html
+  - text: 联系我
+    url: /navigations/contact.html
+  - text: 友情链接
+    url: /navigations/links.html
