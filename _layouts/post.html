@@ -11,16 +11,20 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
         <div>
             <div class="pull-left">
                 {% if page.previous %}
-                <button type="button" class="btn btn-primary">
-                    <a class="prev" href="{{ page.previous.url }}" rel="bookmark"><i class="fa fa-chevron-circle-left"></i>{{ page.previous.title | truncatewords:5 }}</a>
-                </button>
+                <a href="{{ page.previous.url }}">
+                    <button type="button" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-menu-left"></i>{{ page.previous.title | truncatewords:5 }}
+                    </button>
+                </a>
                 {% endif %}
             </div>
             <div class="pull-right">
                 {% if page.next %}
-                <button type="button" class="btn btn-primary">
-                    <a class="next" href="{{ page.next.url }}" rel="bookmark">{{ page.next.title | truncatewords:5 }}<i class="fa fa-chevron-circle-right"></i></a>
-                </button>
+                <a href="{{ page.next.url }}">
+                    <button type="button" class="btn btn-primary">
+                        <i class="glyphicon glyphicon-menu-right"></i>{{ page.next.title | truncatewords:5 }}
+                    </button>
+                </a>
                 {% endif %}
             </div>
         </div>
