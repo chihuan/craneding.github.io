@@ -13,7 +13,7 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
                 {% if page.previous %}
                 <a href="{{ page.previous.url }}">
                     <button type="button" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-menu-left"></i>{{ page.previous.title | truncatewords:5 }}
+                        <i class="glyphicon glyphicon-menu-left"></i>&nbsp;{{ page.previous.title | truncatewords:5 }}
                     </button>
                 </a>
                 {% endif %}
@@ -22,7 +22,7 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
                 {% if page.next %}
                 <a href="{{ page.next.url }}">
                     <button type="button" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-menu-right"></i>{{ page.next.title | truncatewords:5 }}
+                        {{ page.next.title | truncatewords:5 }}&nbsp;<i class="glyphicon glyphicon-menu-right"></i>
                     </button>
                 </a>
                 {% endif %}
