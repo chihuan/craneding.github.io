@@ -8,6 +8,7 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
     <div class="row">
         <h2 class="page-header" id="download">{{ page.title }}</h2>
         {{ content }}
+        
         <div>
             <div class="pull-left">
                 {% if page.previous %}
@@ -27,6 +28,20 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
                 </a>
                 {% endif %}
             </div>
+        </div>
+        
+        <div class="comment">
+            {% if site.disqus.config %}
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            {% else %}
+                {% if site.duoshuo.config %}
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
+                {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>
