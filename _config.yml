@@ -25,3 +25,8 @@ nav:
     url: /navigations/contact.html
   - text: 友情链接
     url: /navigations/links.html
+
+# 评论
+disqus:
+  config: true
+  id: craneding
