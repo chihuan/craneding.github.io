@@ -6,12 +6,12 @@ description: 学会使用mysqldump命令进行数据结构和数据的导出。
 ---
 
 ### 导出表结构不导出数据 
-```bash
+```sh
 $ mysqldump -d -uusername -hhostname -p dbname > tables.sql
 ```
 
 ### 导出表结构不导出数据 
-```bash
+{% highlight c %}
 $ mysqldump -t -uusername -hhostname -p dbname > datas.sql
-```
+{% endhighlight %}
 
