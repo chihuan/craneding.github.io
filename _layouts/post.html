@@ -12,18 +12,18 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
         <div>
             <div class="pull-left">
                 {% if page.previous %}
-                <a href="{{ page.previous.url }}">
+                <a href="{{ page.previous.url }}" title="{{ page.previous.title | truncatewords:5 }}">
                     <button type="button" class="btn btn-primary">
-                        <i class="glyphicon glyphicon-menu-left"></i>&nbsp;{{ page.previous.title | truncatewords:5 }}
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;{{ page.previous.title | truncatewords:5 }}</span>
                     </button>
                 </a>
                 {% endif %}
             </div>
             <div class="pull-right">
                 {% if page.next %}
-                <a href="{{ page.next.url }}">
+                <a href="{{ page.next.url }}" title="{{ page.next.title | truncatewords:5 }}">
                     <button type="button" class="btn btn-primary">
-                        {{ page.next.title | truncatewords:5 }}&nbsp;<i class="glyphicon glyphicon-menu-right"></i>
+                        <span class="paging">{{ page.next.title | truncatewords:5 }}&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
                     </button>
                 </a>
                 {% endif %}
