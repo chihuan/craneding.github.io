@@ -11,7 +11,7 @@ $ mysqldump -d -uusername -hhostname -p dbname > tables.sql
 ```
 
 ### 导出表结构不导出数据 
-```shell
+```bash
 $ mysqldump -t -uusername -hhostname -p dbname > datas.sql
 ```
 
