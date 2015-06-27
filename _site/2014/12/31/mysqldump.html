@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>mysqldump命令的用法 | 丁小样同学</title>
+
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学个人博客">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?114dee7ba9f22d60436e6e6452c8b4a4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class="">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/categories.html">分类目录</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/archives.html">文章归档</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/contact.html">联系我</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/links.html">友情链接</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>craneding.github.io</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">mysqldump命令的用法</h2>
+        <h3>导出表结构不导出数据</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>mysqldump -d -uusername -hhostname -p dbname &gt; tables.sql
+</code></pre></div>
+<h3>导出表结构不导出数据</h3>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">$</span> <span class="n">mysqldump</span> <span class="o">-</span><span class="n">t</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">p</span> <span class="n">dbname</span> <span class="o">&gt;</span> <span class="n">datas</span><span class="o">.</span><span class="na">sql</span></code></pre></div>
+
+        
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-left">
+                
+            </div>
+            <div class="pull-right">
+                
+                <a href="/2014/12/31/shell.html" title="shell多行文字合并为一行">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">shell多行文字合并为一行&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'craneding';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</body>
+</html>
