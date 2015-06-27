@@ -4,6 +4,10 @@ highlighter: pygments
 paginate: 8
 paginate_path: /page:num
 
+markdown: redcarpet
+redcarpet:
+    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+
 title: 丁小样同学
 url: http://craneding.github.io
 description: 丁小样同学个人博客
