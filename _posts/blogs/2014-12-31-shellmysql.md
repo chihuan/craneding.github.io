@@ -6,7 +6,7 @@ description: 怎样在脚本中执行myql命令，这或许对定时任务很有
 ---
 
 ### 在脚本中执行mysql的SQL语句
-```sql
+```mysql
     mysql <<EOF    
       select * from tableA a, tableB b   
       where a.id = b.id;  
