@@ -87,6 +87,13 @@ ol, ul {
     padding: 15px 30px;
     width: 100%;
 }
+.btn .paging {
+    display: block;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media (min-width: 480px) {
 .bs-docs-masthead .btn {
     width: auto;
@@ -101,6 +108,12 @@ ol, ul {
 }
 .bs-docs-masthead .lead {
     font-size: 24px;
+}
+.btn .paging {
+    display: inline;
+    max-width: auto;
+    overflow: auto;
+    text-overflow: inherit;
 }
 }
 @media (min-width: 992px) {
