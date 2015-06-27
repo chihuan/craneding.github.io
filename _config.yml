@@ -4,6 +4,7 @@ highlighter: pygments
 paginate: 8
 paginate_path: /page:num
 
+pygments: true
 markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
