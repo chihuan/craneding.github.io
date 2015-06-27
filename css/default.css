@@ -133,4 +133,10 @@ ol, ul {
     font-size: 60px;
     line-height: 1;
 }
+.btn .paging {
+    display: block;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 }
