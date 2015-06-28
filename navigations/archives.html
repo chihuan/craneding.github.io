@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+	<ul role="tablist" class="nav nav-pills" style="margin-top:10px;">
+            <li class="active" role="presentation"><a>我的所有文章 <span class="badge">{{ site.posts | size }}</span></a></li>
+        </ul>
+	<div>
+	    {% capture post_year1 %}{{ 'now' | date: '%Y' }}{% endcapture %}
+	    <div class="page-header">
+               <h1>{{ post_year1 }}年度</h1>
+            </div>
+	    <div class="row">
+	    {% for post in site.posts %}
+               {% capture post_year2 %}{{ post.date | date: '%Y' }}{% endcapture %}
+		   {% if post_year1 != post_year2 %}
+                      {% assign post_year1 = post_year2 %}
+	    </div>
+            <div class="page-header">
+               <h1>{{ post_year1 }}年度</h1>
+            </div>
+	    <div class="row">
+		   {% endif %}
+		<div class="col-sm-6 col-md-4">
+		   <div class="well">
+			<div class="caption">
+		   	   <h3>{{ post.title }}</h3>
+			   <p>日期：{{ post.date | date_to_utc | date: '%Y-%m-%d' }}</p>
+		   	   <p style="height: 60px; overflow: hidden;">简介：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ post.description }}</p>
+			   <p>
+			    	<a class="btn btn-primary" href="{{site.url}}{{ post.url }}" role="button">阅读</a>
+			   </p>
+			</div>
+		   </div>
+		</div>
+	    {% endfor %}
+	    </div>
+	</div>
+    </div>
+</div>

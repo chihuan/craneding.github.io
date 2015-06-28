@@ -21,10 +21,10 @@ domain: blog.dinghz.com
 nav:
   - text: 首页
     url: /index.html
-  - text: 分类目录
-    url: /navigations/categories.html
   - text: 文章归档
     url: /navigations/archives.html
+  - text: 作品
+    url: /navigations/works.html
   - text: 联系我
     url: /navigations/contact.html
   - text: 友情链接

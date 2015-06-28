@@ -11,12 +11,12 @@
     </url>
     
     <url>
-        <loc>http://blog.dinghz.com//navigations/categories.html</loc>
+        <loc>http://blog.dinghz.com//navigations/archives.html</loc>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>http://blog.dinghz.com//navigations/archives.html</loc>
+        <loc>http://blog.dinghz.com//navigations/works.html</loc>
         <priority>0.6</priority>
     </url>
     
