@@ -7,22 +7,12 @@ layout: blank
         <loc>{{ site.url }}/</loc>
         <priority>1.0</priority>
     </url>
+    {% for link in site.nav %}
     <url>
-        <loc>{{ site.url }}/archives.html</loc>
+        <loc>{{ site.url }}/{{ link.url }}</loc>
         <priority>0.6</priority>
     </url>
-    <url>
-        <loc>{{ site.url }}/plugins.html</loc>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ site.url }}/works.html</loc>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>{{ site.url }}/contact.html</loc>
-        <priority>0.6</priority>
-    </url>
+    {% endfor %}
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url }}</loc>
