@@ -7,6 +7,12 @@ layout: blank
         <loc>{{ site.url }}/</loc>
         <priority>1.0</priority>
     </url>
+    {% for link in site.nav %}
+    <url>
+        <loc>{{ site.url }}/{{ link.url }}</loc>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url }}</loc>

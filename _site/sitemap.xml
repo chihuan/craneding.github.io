@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://blog.dinghz.com/</loc>
+        <priority>1.0</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com//index.html</loc>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com//navigations/categories.html</loc>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com//navigations/archives.html</loc>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com//navigations/contact.html</loc>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com//navigations/links.html</loc>
+        <priority>0.6</priority>
+    </url>
+    
+    
+    <url>
+        <loc>http://blog.dinghz.com/2014/12/31/shellmysql.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com/2014/12/31/shell.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com/2014/12/31/mysqldump.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>
+
