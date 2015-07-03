@@ -15,7 +15,7 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
                 {% if page.previous %}
                 <a href="{{ page.previous.url }}" title="{{ page.previous.title | truncatewords:5 }}">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-right"></i>&nbsp;{{ page.previous.title | truncatewords:5 }}</span>
+                        <span class="paging">{{ page.previous.title | truncatewords:5 }}&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
                     </button>
                 </a>
                 {% endif %}
