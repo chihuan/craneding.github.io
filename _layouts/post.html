@@ -11,20 +11,20 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
         {{ content }}
         
         <div style="padding: 5px; margin: 10px 0px; height: 35px;">
-            <div class="pull-left">
+            <div class="pull-right">
                 {% if page.previous %}
                 <a href="{{ page.previous.url }}" title="{{ page.previous.title | truncatewords:5 }}">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;{{ page.previous.title | truncatewords:5 }}</span>
+                        <span class="paging"><i class="glyphicon glyphicon-menu-right"></i>&nbsp;{{ page.previous.title | truncatewords:5 }}</span>
                     </button>
                 </a>
                 {% endif %}
             </div>
-            <div class="pull-right">
+            <div class="pull-left">
                 {% if page.next %}
                 <a href="{{ page.next.url }}" title="{{ page.next.title | truncatewords:5 }}">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging">{{ page.next.title | truncatewords:5 }}&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;{{ page.next.title | truncatewords:5 }}</span>
                     </button>
                 </a>
                 {% endif %}

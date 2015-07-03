@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>mysqldump命令的用法 | 丁小样同学</title>
+    <title>HTML5 Canvas 的初试 | 丁小样同学</title>
 
     <meta name="author" content="丁小样同学">
     
@@ -94,30 +94,51 @@
 
 <div class="container-fluid bs-docs-container">
     <div class="row">
-        <h2 class="page-header" id="download">mysqldump命令的用法</h2>
-        <h3>导出表结构不导出数据</h3>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>mysqldump -d -uusername -hhostname -p dbname &gt; tables.sql
-</code></pre></div>
-<h3>导出表结构不导出数据</h3>
+        <h2 class="page-header" id="download">HTML5 Canvas 的初试</h2>
+        <h3>Canvas的简单实习</h3>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">$</span> <span class="n">mysqldump</span> <span class="o">-</span><span class="n">t</span> <span class="o">-</span><span class="n">uusername</span> <span class="o">-</span><span class="n">hhostname</span> <span class="o">-</span><span class="n">p</span> <span class="n">dbname</span> <span class="o">&gt;</span> <span class="n">datas</span><span class="o">.</span><span class="na">sql</span></code></pre></div>
+<p>HTML5 真的很强大，目前大多数的浏览器都支持了，就差IE了，前两个星期开始了解Canvas，真的很好很强大，HTML5在WEB开发方面真的是越来越快速了和方便了。 </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html&gt;</span>  
+ <span class="nt">&lt;head&gt;</span>  
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;application/x-javascript&quot;</span><span class="nt">&gt;</span>  
+    <span class="kd">function</span> <span class="nx">draw</span><span class="p">()</span> <span class="p">{</span>  
+      <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;canvas&quot;</span><span class="p">);</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>  
+
+        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgb(200,0,0)&quot;</span><span class="p">;</span>  
+        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>  
+
+        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">&quot;rgba(0, 0, 200, 0.5)&quot;</span><span class="p">;</span>  
+        <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>  
+      <span class="p">}</span>  
+    <span class="p">}</span>  
+  <span class="nt">&lt;/script&gt;</span>  
+ <span class="nt">&lt;/head&gt;</span>  
+ <span class="nt">&lt;body</span> <span class="na">onload=</span><span class="s">&quot;draw();&quot;</span><span class="nt">&gt;</span>  
+   <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">&quot;canvas&quot;</span> <span class="na">width=</span><span class="s">&quot;150&quot;</span> <span class="na">height=</span><span class="s">&quot;150&quot;</span><span class="nt">&gt;&lt;/canvas&gt;</span>  
+ <span class="nt">&lt;/body&gt;</span>  
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div>
+<p>效果图如下:</p>
+
+<p><img src="https://developer.mozilla.org/@api/deki/files/602/=Canvas_ex1.png" alt="canvas效果"></p>
+
+<p>简单的几行代码就可以实现在界面画两个矩形，还支持透明；突然就想起弄个Demo来练练手，于是就自己用GWT做了一个简单的画图页面，<a href="http://canvasdemo.appspot.com/">展示地址(国内可能打不开)</a>，有兴趣的朋友可以看看，本来想做多几个功能的，可没什么时间做，所有等以后有时间再慢慢完善。 
+界面如下图：</p>
+
+<p><img src="http://dl.iteye.com/upload/attachment/236815/ec876b1d-14f9-32a8-8c52-b3472b89d377.gif" alt="canvas效果"></p>
 
         
         <div style="padding: 5px; margin: 10px 0px; height: 35px;">
             <div class="pull-right">
                 
-                <a href="/2010/04/19/canvasdemo.html" title="HTML5 Canvas 的初试">
-                    <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-right"></i>&nbsp;HTML5 Canvas 的初试</span>
-                    </button>
-                </a>
-                
             </div>
             <div class="pull-left">
                 
-                <a href="/2014/12/31/shell.html" title="shell多行文字合并为一行">
+                <a href="/2014/12/31/mysqldump.html" title="mysqldump命令的用法">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;shell多行文字合并为一行</span>
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;mysqldump命令的用法</span>
                     </button>
                 </a>
                 
