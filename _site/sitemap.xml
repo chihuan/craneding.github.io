@@ -57,6 +57,11 @@
     </url>
     
     <url>
+        <loc>http://blog.dinghz.com/2014/04/08/memcached.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://blog.dinghz.com/2010/04/19/canvasdemo.html</loc>
         <priority>0.8</priority>
     </url>

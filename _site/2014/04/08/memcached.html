@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Memcached高性能的分布式内存对象缓存系统 | 丁小样同学</title>
+
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class="">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/archives.html">文章归档</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/contact.html">联系我</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/links.html">友情链接</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">Memcached高性能的分布式内存对象缓存系统</h2>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;大多数小公司的Web服务器都只有一台，然后就部署了很多Web程序，完全没有什么负载均衡的概念。一但要做个升级，就得停服务，升级完成后，用户还得重新登录，这给用户是相当不好的体验。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Web负载均衡，这首选肯定是Nginx了，这就不在这里多说了。而使用了负载均衡，那多个Web实例的用户会话怎么保持一致呢？这个时候Memcached就可以闪亮登场了（其实Memcached的不仅仅是用于用户会话缓存的），最近学习了Memcached，在自己边学习，边实验的过程当中，看了许多资料。这里就简单说一下Memcached，具体会给大家分享一些比较好的文章。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Memcached 是一个高性能的分布式内存对象缓存系统，用于动态Web应用以减轻数据库负载。介绍可以看官网，如果觉得英文看不大懂，那就看看<a href="http://baike.baidu.com/link?url=5s_KtQnwf9DohOzjy3rBtUpBMX21lLHE9ZjB6DibbAyXmyE2juRn5hCUt9cdTnoS">百度百科</a>的介绍，同时也有对Memcached做了全面剖析，详情请看<a href="http://blog.charlee.li/memcached-pdf/">memcached全面剖析--PDF总结篇</a>。 </p>
+
+<blockquote>
+<p>memcached全面剖析的连载已经结束，翻译工作也已经全部完成了。</p>
+
+<p>为了方便阅读，现将原来的翻译结果打包成PDF文档。可在本文末尾处下载。</p>
+
+<p>原来的各篇翻译的地址如下：</p>
+
+<p>第1章：</p>
+
+<p>第2章：<a href="http://tech.idv2.com/2008/07/11/memcached-002/">http://tech.idv2.com/2008/07/11/memcached-002/</a></p>
+
+<p>第3章：<a href="http://tech.idv2.com/2008/07/16/memcached-003/">http://tech.idv2.com/2008/07/16/memcached-003/</a></p>
+
+<p>第4章：<a href="http://tech.idv2.com/2008/07/24/memcached-004/">http://tech.idv2.com/2008/07/24/memcached-004/</a></p>
+
+<p>第5章：<a href="http://tech.idv2.com/2008/07/31/memcached-005/">http://tech.idv2.com/2008/07/31/memcached-005/</a> </p>
+</blockquote>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Memcached是需要安装的，具体的安装就不在这里将来，安装方面可以看官网的介绍或<a href="http://www.cnblogs.com/czh-liyu/archive/2010/04/27/1722084.html">这篇文章</a>。那有了服务器端，那其客户端支持什么语言呢？有C / C++、PHP、Java、Python等等，基本的语言都支持，对于客户端的介绍和下载，请看<a href="http://code.google.com/p/memcached/wiki/Clients">Clients</a>。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;那至于怎么跟Tomcat进行结合呢？需要用到哪些包呢？请看<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration">memcached-session-manager</a>，这篇文章写的非常详细，不过就是全英文的。想看中文的翻译版的，那请看这篇文章<a href="http://chenzhou123520.iteye.com/blog/1650212">memcached-session-manager中文翻译</a></p>
+
+<blockquote>
+<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Introduction">Introduction</a></p>
+
+<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Decide_which_serialization_strategy_to_use">Decide which serialization strategy to use</a></p>
+
+<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Configure_tomcat">Configure tomcat</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Add_memcached-session-manager_jars_to_tomcat">Add memcached-session-manager jars to tomcat</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Add_custom_serializers_to_your_webapp_(optional)">Add custom serializers to your webapp (optional)</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Configure_memcached-session-manager_as_%3CContext%3E_Manager">Configure memcached-session-manager as <Context> Manager</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Overview_over_memcached-session-manager_configuration_attributes">Overview over memcached-session-manager configuration attributes</a></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Overview_over_available_system_properties_(all_optional)">Overview over available system properties (all optional)</a></p>
+
+<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Configure_logging">Configure logging</a></p>
+</blockquote>
+
+        
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2010/04/19/canvasdemo.html" title="HTML5 Canvas 的初试">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">HTML5 Canvas 的初试&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2014/11/19/nginxupdate.html" title="nginx平滑升级">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;nginx平滑升级</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'craneding';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</body>
+</html>
