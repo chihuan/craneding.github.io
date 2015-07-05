@@ -31,7 +31,7 @@ pdescription:     文章整理的整整齐齐，在这里你可以看的更有�
 			   <p>日期：{{ post.date | date_to_utc | date: '%Y-%m-%d' }}</p>
 		   	   <p style="height: 60px; overflow: hidden;">简介：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ post.description }}</p>
 			   <p>
-			    	<a class="btn btn-primary" href="{{site.url}}{{ post.url }}" role="button">阅读</a>
+			    	<a class="btn btn-primary" href="{{ post.url }}" role="button">阅读</a>
 			   </p>
 			</div>
 		   </div>

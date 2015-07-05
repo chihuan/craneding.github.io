@@ -32,6 +32,11 @@
     
     
     <url>
+        <loc>http://blog.dinghz.com/2015/07/05/linuxwget.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://blog.dinghz.com/2014/12/31/shellmysql.html</loc>
         <priority>0.8</priority>
     </url>
