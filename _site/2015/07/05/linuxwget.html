@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Linux wget命令整站下载做网站镜像 | 丁小样同学</title>
+
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class="">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/archives.html">文章归档</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/contact.html">联系我</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/links.html">友情链接</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">Linux wget命令整站下载做网站镜像</h2>
+        <h3>普通下载</h3>
+
+<p>简单的下载文件，类似浏览器的文件下载功能。</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget http://www.xxx.com/abc/file.zip
+</code></pre></div>
+<h3>断点续传</h3>
+
+<p>文件大或网络慢不稳定的时候，文件还没下载完成，连接就断开又得重新下载。这个时候可以使用wget的断点续传，只需要在使用的时候加-c参数。</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -c http://www.xxx.com/abc/file.zip
+</code></pre></div>
+<h3>批量下载</h3>
+
+<p>有多个文件需要下载，那么你只要给wget一个下载清单即可批量下载。编写一个文件，文件的每一行都是需要下载的url地址，然后使用-i参数。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"># download.txt
+http://www.xxx.com/abc/file1.zip
+http://www.xxx.com/abc/file2.zip
+http://www.xxx.com/abc/file3.zip
+</code></pre></div><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -i download.txt
+</code></pre></div>
+<h3>选择性下载</h3>
+
+<p>可以指定下载某种类型文件，或者不下载某种文件。</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -m -reiect<span class="o">=</span>gif http://www.xxx.com/abc/
+
+<span class="c"># -reject=gif 表示忽略git文件</span>
+<span class="c"># -accept=git 表示下载git文件</span>
+</code></pre></div>
+<h3>整站下载</h3>
+
+<p>可以以递归的方式下载整站，并将下载的页面的链接转换为本地链接，同时可以忽略robots.txt协议和模拟User-Agent。</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -r -p -np -k -e <span class="nv">robots</span><span class="o">=</span>off -U <span class="s2">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0&quot;</span> http://www.xxx.com/abc/
+
+<span class="c"># -r,  --recursive（递归)</span>
+<span class="c"># -k,  --convert-links（转换链接）</span>
+<span class="c"># -p,  --page-requisites（页面必需元素）</span>
+<span class="c"># -np, --no-parent（不追溯至父级）</span>
+<span class="c"># -e robots=off, --忽略robots.txt协议</span>
+<span class="c"># -U, 模拟User-Agent</span>
+</code></pre></div>
+        
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2014/12/31/shellmysql.html" title="shell执行mysql的SQL语句">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">shell执行mysql的SQL语句&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'craneding';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</body>
+</html>
