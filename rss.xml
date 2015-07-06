@@ -1,0 +1,30 @@
+---
+layout: blank
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title }}</title>
+    <description></description>
+    <link>{{ site.url }}</link>
+    <language>zh-CN</language>
+    <copyright>Copyright 2015, {{ site.domain }}</copyright>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <generator>{{ site.title }}</generator>
+    <atom:link href="{{ site.url }}{{ site.feed }}" rel="self" type="application/rss+xml" />
+
+    {% for post in site.posts limit:10 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <description>
+        <![CDATA[
+        {{ post.content }}
+        ]]>
+      </description>
+      <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+      <link>{{ site.url }}{{ post.url }}</link>
+      <guid isPermaLink="false">{{ site.url }}{{ post.id }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

@@ -16,6 +16,7 @@ author :
   name : 丁小样同学
   email : crane.ding@163.com
 domain: blog.dinghz.com
+feed: /rss.xml
 
 #Nav config
 nav:
