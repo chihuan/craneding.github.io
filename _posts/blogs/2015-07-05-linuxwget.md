@@ -40,7 +40,7 @@ $ wget -i download.txt
 $ wget -m -reiect=gif http://www.xxx.com/abc/
 
 # -reject=gif 表示忽略gif文件
-# -accept=git 表示下载gif文件
+# -accept=gif 表示下载gif文件
 
 ```
 

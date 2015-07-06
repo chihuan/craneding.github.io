@@ -4,7 +4,7 @@
    <title>丁小样同学</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-07-06T15:54:46+08:00</updated>
+   <updated>2015-07-06T16:02:17+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
@@ -42,7 +42,7 @@ http://www.xxx.com/abc/file3.zip
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget -m -reiect&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gif http://www.xxx.com/abc/
 
 &lt;span class=&quot;c&quot;&gt;# -reject=gif 表示忽略gif文件&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -accept=git 表示下载gif文件&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -accept=gif 表示下载gif文件&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;整站下载&lt;/h3&gt;
 
