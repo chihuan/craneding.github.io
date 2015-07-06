@@ -39,8 +39,8 @@ $ wget -i download.txt
 ```sh
 $ wget -m -reiect=gif http://www.xxx.com/abc/
 
-# -reject=gif 表示忽略git文件
-# -accept=git 表示下载git文件
+# -reject=gif 表示忽略gif文件
+# -accept=git 表示下载gif文件
 
 ```
 
