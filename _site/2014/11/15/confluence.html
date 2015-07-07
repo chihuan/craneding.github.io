@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>confluence安装手册 | 丁小样同学</title>
+
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class="">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/archives.html">文章归档</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/contact.html">联系我</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/links.html">友情链接</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">confluence安装手册</h2>
+        <h3>环境准备</h3>
+
+<p>操作系统：Linux</p>
+
+<p>confluence版本：5.4.4</p>
+
+<p>数据库：mysql 5 </p>
+
+<h3>软件下载</h3>
+
+<p>confluence安装包：<a href="https://www.atlassian.com/software/confluence/download">atlassian-confluence-5.4.4-x64_1.bin</a></p>
+
+<p>confluence中文包：<a href="http://dl.iteye.com/topics/download/a8e03f06-b333-35cf-9403-90a842c407fa">JIRA-Language-STD-CN.jar</a></p>
+
+<p>confluence破解包：<a href="http://dl.iteye.com/topics/download/2e3ec41d-92aa-348f-9c75-73f10b6fba06">jira_crack.zip</a></p>
+
+<p>mysql驱动：<a href="http://dl.iteye.com/topics/download/7f00832a-b07e-32cb-856f-ce49c545f48a">mysql-connector-java-5.1.34-bin.jar </a></p>
+
+<h3>数据库准备</h3>
+
+<p>创建jiradb数据库 </p>
+<div class="highlight"><pre><code class="language-mysql" data-lang="mysql"><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">confluence</span> <span class="k">CHARACTER</span> <span class="kt">SET</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="n">utf8_bin</span><span class="p">;</span>
+</code></pre></div>
+<p>权限用户授权</p>
+<div class="highlight"><pre><code class="language-mysql" data-lang="mysql"><span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span><span class="k">INSERT</span><span class="p">,</span><span class="k">UPDATE</span><span class="p">,</span><span class="k">DELETE</span><span class="p">,</span><span class="k">CREATE</span><span class="p">,</span><span class="k">DROP</span><span class="p">,</span><span class="k">ALTER</span><span class="p">,</span><span class="k">INDEX</span> <span class="k">on</span> <span class="n">confluence</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;&lt;db user&gt;&#39;</span><span class="o">@</span><span class="s1">&#39;&lt;db hostname&gt;&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;&lt;db password&gt;&#39;</span><span class="p">;</span>  
+
+<span class="n">flush</span> <span class="n">privileges</span><span class="p">;</span>  
+
+<span class="cm">/*  </span>
+<span class="cm">例如：  </span>
+<span class="cm">GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER,INDEX on confluence.* TO &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;;  </span>
+<span class="cm">*/</span>
+</code></pre></div>
+<h3>系统环境变量</h3>
+
+<p>设置语言为zh<em>CN，如果语言为en</em>US则confluence汉化无法生效，最好在.profile文件中配置</p>
+
+<p>在~/.profile文件最后加以下两行</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>zh_CN.UTF-8  
+<span class="nb">export </span><span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN:zh
+</code></pre></div>
+<p>重新加载环境变量（在命令行中输入） </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">source</span> ~/.profile
+</code></pre></div>
+<p>查看locale</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>locale  
+<span class="nv">LANG</span><span class="o">=</span>zh_CN.UTF-8  
+<span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN:zh  
+<span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_NUMERIC</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_TIME</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_COLLATE</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_MONETARY</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_MESSAGES</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_PAPER</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_NAME</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_ADDRESS</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_TELEPHONE</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_MEASUREMENT</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_IDENTIFICATION</span><span class="o">=</span><span class="s2">&quot;zh_CN.UTF-8&quot;</span>  
+<span class="nv">LC_ALL</span><span class="o">=</span>  
+</code></pre></div>
+<h3>安装confluence（使用root用户安装）</h3>
+
+<p>授予执行权限 </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>chmod +x atlassian-confluence-5.4.4-x64_1.bin
+</code></pre></div>
+<p>安装jira（安装过程中会提示输入相关配置） </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>./atlassian-confluence-5.4.4-x64_1.bin
+</code></pre></div>
+<p>关闭confluence（安装后会自动启动服务） </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>service confluence stop
+</code></pre></div>
+<h3>加载mysql驱动</h3>
+
+<p>拷贝mysql驱动到jira目录/atlassian/confluence/lib</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>cp mysql-connector-java-5.1.34-bin.jar jira目录/atlassian/confluence/lib/  
+</code></pre></div>
+<h3>配置confluence</h3>
+
+<p>用浏览器打开confluence的主页面，安装步骤进行配置，其数据库的的配置按照第三步的配置来配置即可。</p>
+
+<p>需要跟jira进行用户整合的请注意（不需的这一步略过），如果你需要跟jira进行结合，那需要注意在jira系统中有一个jira管理员用户是属于jira-system-administrators组，如果没有jira-system-administrators组，则在jira中进行新增并把用户新增到该组。跟jira结合这一步没有配置好，则无法跟jira进行整合。在配置这个一步时，配置有jira-system-administrators组的jira管理员即可。</p>
+
+<p>进入界面后，进入插件管理，将中文包插件上传，将提示安装插件成功。重启confluence服务后，中文生效。</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>service confluence stop  
+<span class="nv">$ </span>service confluence start
+</code></pre></div>
+<h3>破解confluence</h3>
+
+<p>将atlassian-extras-2.4.jar包替换掉confluence中的atlassian-extras-2.4.jar，然后重启confluence服务即可。 </p>
+
+<h3>安装完成</h3>
+
+<h3>备注</h3>
+
+<p>打开confluence官网忙，下载安装包难，这个原因就不多说了 </p>
+
+<p>生成License比较慢，跟上一个问题一样 </p>
+
+        
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2014/04/08/memcached.html" title="Memcached分布式">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">Memcached分布式&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2014/11/19/nginxupdate.html" title="nginx平滑升级">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;nginx平滑升级</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'craneding';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</body>
+</html>
