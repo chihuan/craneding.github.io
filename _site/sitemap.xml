@@ -32,6 +32,11 @@
     
     
     <url>
+        <loc>http://blog.dinghz.com/2015/07/09/appdevelper.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://blog.dinghz.com/2015/07/05/linuxwget.html</loc>
         <priority>0.8</priority>
     </url>

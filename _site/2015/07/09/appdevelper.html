@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>手机app快速开发的经验 | 丁小样同学</title>
+
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class="">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/archives.html">文章归档</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/contact.html">联系我</a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/navigations/links.html">友情链接</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">手机app快速开发的经验</h2>
+        <h3>app开发模式</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前app平台有Android和IOS两大平台，对于一般的手机应用来说我们只需开发这两个平台的app（对于类似新浪微博、微信、QQ这样的高群体用户来说，那就必须支持所有的平台，包括：IOS，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry）。目前手机app的开发模式有两大模式，分别为原生开发和混搭Web开发。对于中小团队来说我建议使用混搭Web开发的模式，因为使用原生开发需要对每个平台分不同的团队来进行开发，这样团队人员和开发进度将会是一个瓶颈。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;混搭Web开发，首选是使用PhongGap+HTML5+CSS3+JavaScript。<a href="http://phonegap.com/">Phonegap</a>是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry智能手机的核心功能。目前几乎所有的Android和IOS系统的手机都支持HTML5和CSS3（唯一的差别就是个别比较旧的浏览器对某些特性不支持或支持的不完美）。</p>
+
+<h3>信息推送信息</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自己开发信息推送？不建议，除非你的团队足够大或者有比较特殊的保密信息才建议自己开发。信息推送我们先说主流的手机平台（Android和IOS），Android和IOS的推送机制完成不一样，Android是手机应用于应用后台服务之间的通讯；IOS是基于苹果公司提供的消息推送服务(APNS)，其原理就是，第三方应用将要推送给用户的信息推送到苹果服务器，苹果服务器再通过统一的系统接口将这些信息推送到用户的手机上。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用比较成熟的信息推送框架，会给我们的手机app开发带来不少的便利。这里推荐<a href="https://www.jpush.cn/common/products">极光推送</a>，极光推送也是比较成熟的
+信息推送系统，其平台整合了Android推送、iOS推送的统一推送服务。一般企业用户使用其免费版本也就足够了，想要了解免费版和收费版的区别<a href="https://www.jpush.cn/common/price">请看这里</a>，其它不多少，搞的好像给它做广告是的。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;极光推送平台当然不是唯一的选择，还有百度的云推送，推送（Push）是百度开放云向开发者提供的消息推送服务；通过利用云端与客户端之间建立稳定、可靠的长连接来为开发者提供向客户端应用推送实时消息的一种开发者服务。目前百度&quot;云推送&quot;服务是完全免费的，只支持 Android及iOS两个平台。也是这两年才推出的服务，相对来说是一个比较新的平台。本人还没怎么去研究其跟极光推送平台的差异和对比其优劣。不过我个人比较喜欢百度的开发服务平台，基本都是免费而且很全，如果是我选择的话，我会选择百度云推送。</p>
+
+<h3>社会化分享</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;社会化分享已经成为一个app必不可少的一个模块。新浪微博，腾讯微博，QQ空间，人人网，开心网，微信，QQ好友等平台的分享，难道我们都需要对每个平台进行对接吗，那我们的工作量和维护量得多大啊？刚刚才说百度的开发服务平台很全，现在就给你推荐它的另一个服务<a href="http://developer.baidu.com/soc/share">百度社会化分享组件</a>，该组件有IOS、Android和Webapp三种模式。目前支持新浪微博、腾讯微博、QQ空间、开心网、微信好友、微信朋友圈进行分享，同时支持Android系统的邮件、短信同步分享。</p>
+
+<h3>统计分析和监控</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;统计分析这对app来说也是相当重要的一部分，它可以帮你更好的了解你的app的健康情况和用户分析等。这一方面百度的开发服务平台也提供了非常全面的服务，<a href="http://tongji.baidu.com/web/welcome/login">百度统计-网站统计</a>、<a href="http://mtj.baidu.com/web/welcome/login">百度统计-移动统计</a>等等。百度统计-网站统计<a href="http://tongji.baidu.com/web/5473605/overview/multi?siteId=1942168">演示地址</a>，百度统计-移动统计<a href="http://mtj.baidu.com/web/overview?appId=19">演示地址</a>。</p>
+
+<h3>应用测试与发布</h3>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这么多手机型号，难道每一种手机型号都要买来测试吗？不用，咱们还是可以使用<a href="http://mtc.baidu.com/mtc/">百度移动云测试</a>。对于一个app在内测阶段的app，怎么管理你的版本和快速测试呢，这<a href="http://www.pgyer.com/">蒲公英 - 免费的应用托管平台|App应用众测分发</a>可以帮到你。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布到应用市场，对于IOS来说就相对简单，因为都是必须在早苹果的App Store进行发布。而Android就不一样，每个厂商都搞自己应用市场，五花八门，一个个发布那是相当的麻烦，你也可以使用<a href="https://www.zhuamob.com/">抓猫</a>，来进行统一发布。</p>
+
+        
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2015/07/05/linuxwget.html" title="Linux wget命令整站下载做网站镜像">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">Linux wget命令整站下载做网站镜像&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'craneding';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+</body>
+</html>
