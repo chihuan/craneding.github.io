@@ -4,7 +4,7 @@
    <title>丁小样同学</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-07-09T14:35:23+08:00</updated>
+   <updated>2015-07-09T14:39:33+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
@@ -28,7 +28,7 @@
 &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;自己开发信息推送？不建议，除非你的团队足够大或者有比较特殊的保密信息才建议自己开发。信息推送我们先说主流的手机平台（Android和IOS），Android和IOS的推送机制完成不一样，Android是手机应用于应用后台服务之间的通讯；IOS是基于苹果公司提供的消息推送服务(APNS)，其原理就是，第三方应用将要推送给用户的信息推送到苹果服务器，苹果服务器再通过统一的系统接口将这些信息推送到用户的手机上。&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;使用比较成熟的信息推送框架，会给我们的手机app开发带来不少的便利。这里推荐&lt;a href=&quot;https://www.jpush.cn/common/products&quot;&gt;极光推送&lt;/a&gt;，极光推送也是比较成熟的
-信息推送系统，其平台整合了Android推送、iOS推送的统一推送服务。一般企业用户使用其免费版本也就足够了，想要了解免费版和收费版的区别&lt;a href=&quot;https://www.jpush.cn/common/price&quot;&gt;请看这里&lt;/a&gt;，其它不多少，搞的好像给它做广告是的。&lt;/p&gt;
+信息推送系统，其平台整合了Android推送、iOS推送的统一推送服务。一般企业用户使用其免费版本也就足够了，想要了解免费版和收费版的区别&lt;a href=&quot;https://www.jpush.cn/common/price&quot;&gt;请看这里&lt;/a&gt;，其它不多说，搞的好像给它做广告是的。&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;极光推送平台当然不是唯一的选择，还有&lt;a href=&quot;http://push.baidu.com/&quot;&gt;百度的云推送&lt;/a&gt;，推送（Push）是百度开放云向开发者提供的消息推送服务；通过利用云端与客户端之间建立稳定、可靠的长连接来为开发者提供向客户端应用推送实时消息的一种开发者服务。目前百度&amp;quot;云推送&amp;quot;服务是完全免费的，只支持 Android及iOS两个平台。也是这两年才推出的服务，相对来说是一个比较新的平台。本人还没怎么去研究其跟极光推送平台的差异和对比其优劣。不过我个人比较喜欢百度的开发服务平台，基本都是免费而且很全，如果是我选择的话，我会选择百度云推送。&lt;/p&gt;
 
