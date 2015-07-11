@@ -8,7 +8,7 @@ description: 这是个人在手机app开发这一块的一些经验总结，希�
 ### app开发模式
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前app平台有Android和IOS两大平台，对于一般的手机应用来说我们只需开发这两个平台的app（对于类似新浪微博、微信、QQ这样的高群体用户来说，那就必须支持所有的平台，包括：IOS，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry）。目前手机app的开发模式有两大模式，分别为原生开发和混搭Web开发。对于中小团队来说我建议使用混搭Web开发的模式，因为使用原生开发需要对每个平台分不同的团队来进行开发，这样团队人员和开发进度将会是一个瓶颈。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;混搭Web开发，首选是使用PhongGap+HTML5+CSS3+JavaScript。[Phonegap](http://phonegap.com/)是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry智能手机的核心功能。目前几乎所有的Android和IOS系统的手机都支持HTML5和CSS3（唯一的差别就是个别比较旧的浏览器对某些特性不支持或支持的不完美）。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;混搭Web开发，首选是使用PhongGap、HTML5、CSS3、JavaScript。[Phonegap](http://phonegap.com/)是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry智能手机的核心功能。目前几乎所有的Android和IOS系统的手机都支持HTML5和CSS3（唯一的差别就是个别比较旧的浏览器对某些特性不支持或支持的不完美）。
 
 ### 信息推送信息
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自己开发信息推送？不建议，除非你的团队足够大或者有比较特殊的保密信息才建议自己开发。信息推送我们先说主流的手机平台（Android和IOS），Android和IOS的推送机制完成不一样，Android是手机应用于应用后台服务之间的通讯；IOS是基于苹果公司提供的消息推送服务(APNS)，其原理就是，第三方应用将要推送给用户的信息推送到苹果服务器，苹果服务器再通过统一的系统接口将这些信息推送到用户的手机上。
