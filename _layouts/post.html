@@ -7,7 +7,7 @@ pdescription:     没错，这满满都是技术类的文章。把自己看到�
 
 <div class="container-fluid bs-docs-container">
     <div class="row">
-        <h2 class="page-header" id="download">{{ page.title }}</h2>
+        <h2 class="page-header" id="download">{{ page.title }} <small><span class="label label-info">{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</span></small></h2>
         {{ content }}
         
         <div style="padding: 5px; margin: 10px 0px; height: 35px;">
