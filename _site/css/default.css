@@ -151,3 +151,17 @@ ol, ul {
     line-height: 1;
 }
 }
+
+.footer {
+    border-top: 1px solid #e5e5e5;
+    color: #777;
+    padding: 30px 0;
+}
+
+.footer a {
+    color: #777;
+}
+
+.footer-bottom {
+    font-size: 13px;
+}
