@@ -22,14 +22,12 @@ feed: /rss.xml
 nav:
   - text: 首页
     url: /index.html
-  - text: 文章归档
+  - text: 笔迹
     url: /navigations/archives.html
   - text: 作品
     url: /navigations/works.html
-  - text: 联系我
+  - text: 关于
     url: /navigations/contact.html
-  - text: 友情链接
-    url: /navigations/links.html
 
 # 评论
 disqus:
