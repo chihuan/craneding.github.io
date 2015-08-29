@@ -4,13 +4,55 @@
    <title>丁小样同学</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-07-12T14:03:38+08:00</updated>
+   <updated>2015-08-29T15:09:49+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
      <email>crane.ding@163.com</email>
    </author>
 
+   
+   <entry>
+     <title>不翻墙也能更新和管理Android SDK</title>
+     <link href="http://blog.dinghz.com/2015/08/29/androiddevtools.html"/>
+     <updated>2015-08-29T00:00:00+08:00</updated>
+     <id>http://blog.dinghz.com/2015/08/29/androiddevtools</id>
+     <content type="html">&lt;h3&gt;Android SDK在线更新镜像服务器&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;中国科学院开源协会镜像站地址:&lt;/p&gt;
+
+&lt;p&gt;IPV4/IPV6: &lt;a href=&quot;http://mirrors.opencas.cn&quot;&gt;http://mirrors.opencas.cn&lt;/a&gt; 端口：80&lt;/p&gt;
+
+&lt;p&gt;IPV4/IPV6: &lt;a href=&quot;http://mirrors.opencas.org&quot;&gt;http://mirrors.opencas.org&lt;/a&gt; 端口：80&lt;/p&gt;
+
+&lt;p&gt;IPV4/IPV6: &lt;a href=&quot;http://mirrors.opencas.ac.cn&quot;&gt;http://mirrors.opencas.ac.cn&lt;/a&gt; 端口：80&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;上海GDG镜像服务器地址:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://sdk.gdgshanghai.com&quot;&gt;http://sdk.gdgshanghai.com&lt;/a&gt; 端口：8000&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;北京化工大学镜像服务器地址:&lt;/p&gt;
+
+&lt;p&gt;IPv4: &lt;a href=&quot;http://ubuntu.buct.edu.cn/&quot;&gt;http://ubuntu.buct.edu.cn/&lt;/a&gt; 端口：80&lt;/p&gt;
+
+&lt;p&gt;IPv4: &lt;a href=&quot;http://ubuntu.buct.cn/&quot;&gt;http://ubuntu.buct.cn/&lt;/a&gt; 端口：80&lt;/p&gt;
+
+&lt;p&gt;IPv6: &lt;a href=&quot;http://ubuntu.buct6.edu.cn/&quot;&gt;http://ubuntu.buct6.edu.cn/&lt;/a&gt; 端口：80&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;大连东软信息学院镜像服务器地址:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mirrors.neusoft.edu.cn&quot;&gt;http://mirrors.neusoft.edu.cn&lt;/a&gt; 端口：80&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;使用方法：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;启动Android SDK Manager（相关命令：anrorid sdk），打开主界面，依次选择【Tools】、【Options】，弹出【Android SDK Manager - Settings】窗口&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在【Android SDK Manager - Settings】窗口中，在【HTTP Proxy Server】和【HTTP Proxy Port】输入框内填入上面镜像服务器地址（不包含http:// ，如下图）和端口，并且选中【Force https://... source to be fetched using http://...】复选框。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;依次选择【Packages】、【Reload】。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img width=&quot;40%&quot; height=&quot;20%&quot; alt=&quot;SDK Manager Proxy Settings&quot; src=&quot;http://www.androiddevtools.cn/static/image/sdk-manager-proxy-settings.png&quot;&gt;&lt;/p&gt;
+</content>
+   </entry>
    
    <entry>
      <title>手机app快速开发的经验</title>

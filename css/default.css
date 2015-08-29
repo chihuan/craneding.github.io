@@ -6,6 +6,10 @@ ol, ul {
     list-style: outside none none;
 }
 
+.bs-docs-container ol, .bs-docs-container ul {
+    list-style: decimal outside;
+}
+
 .index-content .jumbotron {
     padding:25px 30px;
 }

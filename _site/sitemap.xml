@@ -6,25 +6,30 @@
     </url>
     
     <url>
-        <loc>http://blog.dinghz.com//index.html</loc>
+        <loc>http://blog.dinghz.com/index.html</loc>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>http://blog.dinghz.com//navigations/archives.html</loc>
+        <loc>http://blog.dinghz.com/navigations/archives.html</loc>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>http://blog.dinghz.com//navigations/works.html</loc>
+        <loc>http://blog.dinghz.com/navigations/works.html</loc>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>http://blog.dinghz.com//navigations/contact.html</loc>
+        <loc>http://blog.dinghz.com/navigations/contact.html</loc>
         <priority>0.6</priority>
     </url>
     
+    
+    <url>
+        <loc>http://blog.dinghz.com/2015/08/29/androiddevtools.html</loc>
+        <priority>0.8</priority>
+    </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/07/09/appdevelper.html</loc>

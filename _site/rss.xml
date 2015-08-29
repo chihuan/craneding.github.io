@@ -12,6 +12,52 @@
 
     
     <item>
+      <title>不翻墙也能更新和管理Android SDK</title>
+      <description>
+        <![CDATA[
+        <h3>Android SDK在线更新镜像服务器</h3>
+
+<ol>
+<li><p>中国科学院开源协会镜像站地址:</p>
+
+<p>IPV4/IPV6: <a href="http://mirrors.opencas.cn">http://mirrors.opencas.cn</a> 端口：80</p>
+
+<p>IPV4/IPV6: <a href="http://mirrors.opencas.org">http://mirrors.opencas.org</a> 端口：80</p>
+
+<p>IPV4/IPV6: <a href="http://mirrors.opencas.ac.cn">http://mirrors.opencas.ac.cn</a> 端口：80</p></li>
+<li><p>上海GDG镜像服务器地址:</p>
+
+<p><a href="http://sdk.gdgshanghai.com">http://sdk.gdgshanghai.com</a> 端口：8000</p></li>
+<li><p>北京化工大学镜像服务器地址:</p>
+
+<p>IPv4: <a href="http://ubuntu.buct.edu.cn/">http://ubuntu.buct.edu.cn/</a> 端口：80</p>
+
+<p>IPv4: <a href="http://ubuntu.buct.cn/">http://ubuntu.buct.cn/</a> 端口：80</p>
+
+<p>IPv6: <a href="http://ubuntu.buct6.edu.cn/">http://ubuntu.buct6.edu.cn/</a> 端口：80</p></li>
+<li><p>大连东软信息学院镜像服务器地址:</p>
+
+<p><a href="http://mirrors.neusoft.edu.cn">http://mirrors.neusoft.edu.cn</a> 端口：80</p></li>
+</ol>
+
+<p>使用方法：</p>
+
+<ol>
+<li><p>启动Android SDK Manager（相关命令：anrorid sdk），打开主界面，依次选择【Tools】、【Options】，弹出【Android SDK Manager - Settings】窗口</p></li>
+<li><p>在【Android SDK Manager - Settings】窗口中，在【HTTP Proxy Server】和【HTTP Proxy Port】输入框内填入上面镜像服务器地址（不包含http:// ，如下图）和端口，并且选中【Force https://... source to be fetched using http://...】复选框。</p></li>
+<li><p>依次选择【Packages】、【Reload】。</p></li>
+</ol>
+
+<p><img width="40%" height="20%" alt="SDK Manager Proxy Settings" src="http://www.androiddevtools.cn/static/image/sdk-manager-proxy-settings.png"></p>
+
+        ]]>
+      </description>
+      <pubDate>2015-08-29T00:00:00+08:00</pubDate>
+      <link>http://blog.dinghz.com/2015/08/29/androiddevtools.html</link>
+      <guid isPermaLink="false">http://blog.dinghz.com/2015/08/29/androiddevtools</guid>
+    </item>
+    
+    <item>
       <title>手机app快速开发的经验</title>
       <description>
         <![CDATA[
