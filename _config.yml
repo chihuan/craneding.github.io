@@ -10,8 +10,8 @@ redcarpet:
 
 title: 丁小样同学
 url: http://blog.dinghz.com
-description: 丁小样同学博客
-keywords: 丁小样同学,个人博客,技术,java
+description: 丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！
+keywords: java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3
 author :
   name : 丁小样同学
   email : crane.ding@163.com
