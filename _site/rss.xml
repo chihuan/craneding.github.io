@@ -245,8 +245,8 @@
         <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span><span class="p">(</span><span class="s2">&quot;a/b.html&quot;</span><span class="p">,</span> <span class="p">{</span>
             <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
-                <span class="nx">name</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#form4&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;#name&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
-                <span class="nx">remark</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#form4&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;#remark&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#form&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;#name&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+                <span class="nx">remark</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#form&quot;</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;#remark&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
             <span class="p">}</span>
         <span class="p">});</span>
  <span class="p">}</span>

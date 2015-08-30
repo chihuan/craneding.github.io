@@ -50,8 +50,8 @@ description:  JQueryMobile怎样实现页面跳转和进行页面间的数据传
             $.mobile.changePage("a/b.html", {
                 type: "post",
                 data: {
-                	name: $("#form4").find("#name").val(),
-                	remark: $("#form4").find("#remark").val()
+                	name: $("#form").find("#name").val(),
+                	remark: $("#form").find("#remark").val()
                 }
             });
      }
