@@ -12,6 +12,199 @@
 
     
     <item>
+      <title>5年前自己写的一个小框架</title>
+      <description>
+        <![CDATA[
+        <h3>工程项目</h3>
+
+<ol>
+<li><p>框架命名： <code>easybean</code></p></li>
+<li><p><code>github</code>地址： <a href="https://github.com/craneding/craneding/tree/master/easybean">https://github.com/craneding/craneding/tree/master/easybean</a></p></li>
+<li><p>功能简介:</p>
+
+<p>简化数据库操作，框架使用jdbc进行封装；采用了原始SQL语句操作作为请求，结果可轻松转换成Java Bean实体对象或Map；自动匹配实体对象的字段名与SQL的字段名字，如果名字不一致，可通过注解的方式在实体对象的字段属性中配置。</p></li>
+<li><p>点赞</p>
+
+<p>框架虽然不咋地，现在一看也有不少缺陷，对于5年前的自己能有这样的想法和写出来，真的得给自己一个赞。</p></li>
+</ol>
+
+<h3>实验代码</h3>
+
+<h4>实体对象</h4>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">easybean</span><span class="o">.</span><span class="na">test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.easybean.annotation.Column</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.easybean.annotation.Table</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @author crane.ding</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;User&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;username&quot;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsername</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">username</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsername</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">username</span> <span class="o">=</span> <span class="n">username</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="s">&quot; username=&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<h4>测试代码</h4>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">easybean</span><span class="o">.</span><span class="na">test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.easybean.EasyBean</span><span class="o">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * @author crane.ding</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestEasyBean</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="n">TestDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TestDataSource</span><span class="o">();</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setUrl</span><span class="o">(</span><span class="s">&quot;jdbc:h2:database/h2demo&quot;</span><span class="o">);</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">&quot;craneding&quot;</span><span class="o">);</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;123456&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kd">final</span> <span class="n">EasyBean</span> <span class="n">easyBean</span> <span class="o">=</span> <span class="n">EasyBean</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">org</span><span class="o">.</span><span class="na">h2</span><span class="o">.</span><span class="na">Driver</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">new</span> <span class="nf">Thread</span><span class="o">(){</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="n">test3</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}.</span><span class="na">start</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="n">test3</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">();</span>
+
+            <span class="kt">int</span> <span class="n">maxCount</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+            <span class="kt">long</span> <span class="n">count</span> <span class="o">=</span> <span class="o">(</span><span class="n">Long</span><span class="o">)</span><span class="n">easyBean</span>
+                <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select count(*) as C from user&quot;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">findUniqueMap</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+
+            <span class="kt">long</span> <span class="n">page</span> <span class="o">=</span> <span class="o">(</span><span class="n">count</span> <span class="o">%</span> <span class="n">maxCount</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">?</span> <span class="o">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">maxCount</span><span class="o">)</span> <span class="o">:</span> <span class="o">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">maxCount</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="kt">int</span> <span class="n">startIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">page</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findList</span> <span class="o">=</span> <span class="n">easyBean</span>
+                    <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select * from user u order by u.id&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">findList</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">startIndex</span><span class="o">,</span> <span class="n">maxCount</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findList</span><span class="o">);</span>
+
+                <span class="n">startIndex</span> <span class="o">+=</span> <span class="n">maxCount</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">commitTransaction</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">endTransaction</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="n">TestDataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">EasyBean</span> <span class="n">easyBean</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">EasyBean</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+        <span class="n">easyBean</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">Object</span> <span class="n">key</span> <span class="o">=</span> <span class="n">easyBean</span>
+                    <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select max(u.id) + 1 as key from user u&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">findUniqueMap</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;KEY&quot;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;insert into user (id, username) values(?, ?)&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="s">&quot;crane.ding@163.com&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">save</span><span class="o">();</span>
+
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">commitTransaction</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">endTransaction</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(</span><span class="n">TestDataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">EasyBean</span> <span class="n">easyBean</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">EasyBean</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select max(u.id) + 1 as key from user u&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findListMap</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+
+        <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;insert into user (id, username) values(?, ?)&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;KEY&quot;</span><span class="o">)</span> <span class="o">,</span><span class="s">&quot;crane.ding@hotye.com&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">save</span><span class="o">();</span>
+
+        <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;update user u set u.username = ? where u.id = ?&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="s">&quot;crane.ding@gmail.com&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">update</span><span class="o">();</span>
+
+        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select id, username from user u where u.id = ?&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findUnique</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select id, username from user u&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findList</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div>
+        ]]>
+      </description>
+      <pubDate>2015-08-30T00:00:00+08:00</pubDate>
+      <link>http://blog.dinghz.com/2015/08/30/easybean.html</link>
+      <guid isPermaLink="false">http://blog.dinghz.com/2015/08/30/easybean</guid>
+    </item>
+    
+    <item>
       <title>JQuryMobile页面跳转与数据传递</title>
       <description>
         <![CDATA[
@@ -460,65 +653,6 @@ http://www.xxx.com/abc/file3.zip
       <pubDate>2014-11-15T00:00:00+08:00</pubDate>
       <link>http://blog.dinghz.com/2014/11/15/confluence.html</link>
       <guid isPermaLink="false">http://blog.dinghz.com/2014/11/15/confluence</guid>
-    </item>
-    
-    <item>
-      <title>Memcached分布式</title>
-      <description>
-        <![CDATA[
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;大多数小公司的Web服务器都只有一台，然后就部署了很多Web程序，完全没有什么负载均衡的概念。一但要做个升级，就得停服务，升级完成后，用户还得重新登录，这给用户是相当不好的体验。</p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Web负载均衡，这首选肯定是Nginx了，这就不在这里多说了。而使用了负载均衡，那多个Web实例的用户会话怎么保持一致呢？这个时候Memcached就可以闪亮登场了（其实Memcached的不仅仅是用于用户会话缓存的），最近学习了Memcached，在自己边学习，边实验的过程当中，看了许多资料。这里就简单说一下Memcached，具体会给大家分享一些比较好的文章。</p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Memcached 是一个高性能的分布式内存对象缓存系统，用于动态Web应用以减轻数据库负载。介绍可以看官网，如果觉得英文看不大懂，那就看看<a href="http://baike.baidu.com/link?url=5s_KtQnwf9DohOzjy3rBtUpBMX21lLHE9ZjB6DibbAyXmyE2juRn5hCUt9cdTnoS">百度百科</a>的介绍，同时也有对Memcached做了全面剖析，详情请看<a href="http://blog.charlee.li/memcached-pdf/">memcached全面剖析--PDF总结篇</a>。 </p>
-
-<blockquote>
-<p>memcached全面剖析的连载已经结束，翻译工作也已经全部完成了。</p>
-
-<p>为了方便阅读，现将原来的翻译结果打包成PDF文档。可在本文末尾处下载。</p>
-
-<p>原来的各篇翻译的地址如下：</p>
-
-<p>第1章：</p>
-
-<p>第2章：<a href="http://tech.idv2.com/2008/07/11/memcached-002/">http://tech.idv2.com/2008/07/11/memcached-002/</a></p>
-
-<p>第3章：<a href="http://tech.idv2.com/2008/07/16/memcached-003/">http://tech.idv2.com/2008/07/16/memcached-003/</a></p>
-
-<p>第4章：<a href="http://tech.idv2.com/2008/07/24/memcached-004/">http://tech.idv2.com/2008/07/24/memcached-004/</a></p>
-
-<p>第5章：<a href="http://tech.idv2.com/2008/07/31/memcached-005/">http://tech.idv2.com/2008/07/31/memcached-005/</a> </p>
-</blockquote>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Memcached是需要安装的，具体的安装就不在这里将来，安装方面可以看官网的介绍或<a href="http://www.cnblogs.com/czh-liyu/archive/2010/04/27/1722084.html">这篇文章</a>。那有了服务器端，那其客户端支持什么语言呢？有C / C++、PHP、Java、Python等等，基本的语言都支持，对于客户端的介绍和下载，请看<a href="http://code.google.com/p/memcached/wiki/Clients">Clients</a>。</p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;那至于怎么跟Tomcat进行结合呢？需要用到哪些包呢？请看<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration">memcached-session-manager</a>，这篇文章写的非常详细，不过就是全英文的。想看中文的翻译版的，那请看这篇文章<a href="http://chenzhou123520.iteye.com/blog/1650212">memcached-session-manager中文翻译</a></p>
-
-<blockquote>
-<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Introduction">Introduction</a></p>
-
-<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Decide_which_serialization_strategy_to_use">Decide which serialization strategy to use</a></p>
-
-<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Configure_tomcat">Configure tomcat</a></p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Add_memcached-session-manager_jars_to_tomcat">Add memcached-session-manager jars to tomcat</a></p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Add_custom_serializers_to_your_webapp_(optional)">Add custom serializers to your webapp (optional)</a></p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Configure_memcached-session-manager_as_%3CContext%3E_Manager">Configure memcached-session-manager as <Context> Manager</a></p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Overview_over_memcached-session-manager_configuration_attributes">Overview over memcached-session-manager configuration attributes</a></p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Overview_over_available_system_properties_(all_optional)">Overview over available system properties (all optional)</a></p>
-
-<p><a href="http://code.google.com/p/memcached-session-manager/wiki/SetupAndConfiguration#Configure_logging">Configure logging</a></p>
-</blockquote>
-
-        ]]>
-      </description>
-      <pubDate>2014-04-08T00:00:00+08:00</pubDate>
-      <link>http://blog.dinghz.com/2014/04/08/memcached.html</link>
-      <guid isPermaLink="false">http://blog.dinghz.com/2014/04/08/memcached</guid>
     </item>
     
   </channel>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>5年前自己写的一个小框架 | 丁小样同学</title>
+
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
+    
+    
+    <meta name="keywords" content="java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3">
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/144_144.png" /> 
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/144_144.png" /> 
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+
+<header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class=" /2015/08/30/easybean.html">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class=" /2015/08/30/easybean.html">
+                    <a href="/navigations/archives.html">笔迹</a>
+                </li>
+                
+                
+                
+                <li class=" /2015/08/30/easybean.html">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class=" /2015/08/30/easybean.html">
+                    <a href="/navigations/contact.html">关于</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">5年前自己写的一个小框架 <small><span class="label label-info">2015-08-30</span></small></h2>
+        <h3>工程项目</h3>
+
+<ol>
+<li><p>框架命名： <code>easybean</code></p></li>
+<li><p><code>github</code>地址： <a href="https://github.com/craneding/craneding/tree/master/easybean">https://github.com/craneding/craneding/tree/master/easybean</a></p></li>
+<li><p>功能简介:</p>
+
+<p>简化数据库操作，框架使用jdbc进行封装；采用了原始SQL语句操作作为请求，结果可轻松转换成Java Bean实体对象或Map；自动匹配实体对象的字段名与SQL的字段名字，如果名字不一致，可通过注解的方式在实体对象的字段属性中配置。</p></li>
+<li><p>点赞</p>
+
+<p>框架虽然不咋地，现在一看也有不少缺陷，对于5年前的自己能有这样的想法和写出来，真的得给自己一个赞。</p></li>
+</ol>
+
+<h3>实验代码</h3>
+
+<h4>实体对象</h4>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">easybean</span><span class="o">.</span><span class="na">test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.easybean.annotation.Column</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.easybean.annotation.Table</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * @author crane.ding</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;User&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;username&quot;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUsername</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">username</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUsername</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">username</span> <span class="o">=</span> <span class="n">username</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;id=&quot;</span> <span class="o">+</span> <span class="n">id</span> <span class="o">+</span> <span class="s">&quot; username=&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<h4>测试代码</h4>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
+<span class="cm"> * </span>
+<span class="cm"> */</span>
+<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">easybean</span><span class="o">.</span><span class="na">test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.easybean.EasyBean</span><span class="o">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * @author crane.ding</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestEasyBean</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="n">TestDataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">TestDataSource</span><span class="o">();</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setUrl</span><span class="o">(</span><span class="s">&quot;jdbc:h2:database/h2demo&quot;</span><span class="o">);</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span><span class="s">&quot;craneding&quot;</span><span class="o">);</span>
+        <span class="n">dataSource</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">&quot;123456&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">static</span> <span class="kd">final</span> <span class="n">EasyBean</span> <span class="n">easyBean</span> <span class="o">=</span> <span class="n">EasyBean</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">org</span><span class="o">.</span><span class="na">h2</span><span class="o">.</span><span class="na">Driver</span><span class="o">.</span><span class="na">load</span><span class="o">();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">new</span> <span class="nf">Thread</span><span class="o">(){</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="n">test3</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}.</span><span class="na">start</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="n">test3</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">();</span>
+
+            <span class="kt">int</span> <span class="n">maxCount</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+            <span class="kt">long</span> <span class="n">count</span> <span class="o">=</span> <span class="o">(</span><span class="n">Long</span><span class="o">)</span><span class="n">easyBean</span>
+                <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select count(*) as C from user&quot;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">findUniqueMap</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span><span class="o">);</span>
+
+            <span class="kt">long</span> <span class="n">page</span> <span class="o">=</span> <span class="o">(</span><span class="n">count</span> <span class="o">%</span> <span class="n">maxCount</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">?</span> <span class="o">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">maxCount</span><span class="o">)</span> <span class="o">:</span> <span class="o">(</span><span class="n">count</span> <span class="o">/</span> <span class="n">maxCount</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+
+            <span class="kt">int</span> <span class="n">startIndex</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">page</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findList</span> <span class="o">=</span> <span class="n">easyBean</span>
+                    <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select * from user u order by u.id&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">findList</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">startIndex</span><span class="o">,</span> <span class="n">maxCount</span><span class="o">);</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">findList</span><span class="o">);</span>
+
+                <span class="n">startIndex</span> <span class="o">+=</span> <span class="n">maxCount</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">commitTransaction</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">endTransaction</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="n">TestDataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">EasyBean</span> <span class="n">easyBean</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">EasyBean</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+        <span class="n">easyBean</span><span class="o">.</span><span class="na">beginTransaction</span><span class="o">();</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">Object</span> <span class="n">key</span> <span class="o">=</span> <span class="n">easyBean</span>
+                    <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select max(u.id) + 1 as key from user u&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">findUniqueMap</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;KEY&quot;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;insert into user (id, username) values(?, ?)&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="s">&quot;crane.ding@163.com&quot;</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">save</span><span class="o">();</span>
+
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">commitTransaction</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">easyBean</span><span class="o">.</span><span class="na">endTransaction</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">protected</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(</span><span class="n">TestDataSource</span> <span class="n">dataSource</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">EasyBean</span> <span class="n">easyBean</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">EasyBean</span><span class="o">(</span><span class="n">dataSource</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select max(u.id) + 1 as key from user u&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findListMap</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+
+        <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;insert into user (id, username) values(?, ?)&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;KEY&quot;</span><span class="o">)</span> <span class="o">,</span><span class="s">&quot;crane.ding@hotye.com&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">save</span><span class="o">();</span>
+
+        <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;update user u set u.username = ? where u.id = ?&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="s">&quot;crane.ding@gmail.com&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">update</span><span class="o">();</span>
+
+        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select id, username from user u where u.id = ?&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">addParameters</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findUnique</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">easyBean</span>
+            <span class="o">.</span><span class="na">sql</span><span class="o">(</span><span class="s">&quot;select id, username from user u&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findList</span><span class="o">(</span><span class="n">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">users</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div>
+        
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2015/08/29/jquerymobile.html" title="JQuryMobile页面跳转与数据传递">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">JQuryMobile页面跳转与数据传递&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                <div class="comment-cnt">
+                    <div id="disqus_thread"></div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'craneding';
+        
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row footer-top">
+      <h4 class="text-center">
+          <img width="57px" height="57px" src="/images/144_144.png"> &nbsp;<a target="_blank" href="http://weibo.com/craneding/">@丁小样同学出品</a>
+        </h4>      
+    </div>
+    <hr>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15053892号-1</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
