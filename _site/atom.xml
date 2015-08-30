@@ -4,7 +4,7 @@
    <title>丁小样同学</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-08-30T10:50:21+08:00</updated>
+   <updated>2015-08-30T12:08:03+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
@@ -202,7 +202,7 @@
    </entry>
    
    <entry>
-     <title>JQuryMobile页面跳转与数据传递</title>
+     <title>JQueryMobile页面跳转与数据传递</title>
      <link href="http://blog.dinghz.com/2015/08/29/jquerymobile.html"/>
      <updated>2015-08-29T00:00:00+08:00</updated>
      <id>http://blog.dinghz.com/2015/08/29/jquerymobile</id>
