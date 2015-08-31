@@ -30,6 +30,9 @@ nav:
     url: /navigations/contact.html
 
 # 评论
-disqus:
+#disqus:
+#  config: true
+#  id: craneding
+duoshuo:
   config: true
-  id: craneding
+  id: dinghz
