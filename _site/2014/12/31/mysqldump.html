@@ -14,7 +14,6 @@
     <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <meta name="sharecontent" data-msg-img="/images/114_114.png" data-msg-title="mysqldump命令的用法 | 丁小样同学" data-msg-content="学会使用mysqldump命令进行数据结构和数据的导出。" data-msg-callBack="" data-line-img="/images/114_114.png" data-line-title="mysqldump命令的用法 | 丁小样同学" data-line-callBack=""/> 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
     <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
     <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
@@ -38,6 +37,62 @@
     var s = document.getElementsByTagName("script")[0]; 
     s.parentNode.insertBefore(hm, s);
     })();
+    </script>
+    <script>
+        var imgUrl = 'http://blog.dinghz.com/images/114_114.png';  // 分享后展示的一张图片
+        var lineLink = window.location.href; // 点击分享后跳转的页面地址
+        var descContent = "学会使用mysqldump命令进行数据结构和数据的导出。";  // 分享后的描述信息
+        var shareTitle = 'mysqldump命令的用法 | 丁小样同学';  // 分享后的标题
+        var appid = '';  // 应用id,如果有可以填，没有就留空
+        
+        function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage',{
+                "appid": appid,
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+                //_report('send_msg', res.err_msg);  // 这是回调函数，必须注释掉
+            })
+        }
+        function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline',{
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+                   //_report('timeline', res.err_msg); // 这是回调函数，必须注释掉
+            });
+        }
+        function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo',{
+                "content": descContent,
+                "url": lineLink,
+            }, function(res) {
+                //_report('weibo', res.err_msg);
+            });
+        }
+        // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            // 发送给好友
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                shareFriend();
+            });
+            // 分享到朋友圈
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+                shareTimeline();
+            });
+            // 分享到微博
+            WeixinJSBridge.on('menu:share:weibo', function(argv){
+                shareWeibo();
+            });
+        }, false);
     </script>
 </head>
 <body>
