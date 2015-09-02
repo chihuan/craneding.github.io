@@ -96,16 +96,9 @@
                 });
             }, false);
 	}
-
-	if(document.addEventListener) {
-	    document.addEventListener('WeixinJSBridgeReady', initwx, false);
-	} else if(document.attachEvent) {
-	    document.attachEvent('WeixinJSBridgeReady', initwx);
-	    document.attachEvent('onWeixinJSBridgeReady', initwx);
-	}
     </script>
 </head>
-<body>
+<body onload="initwx()">
 
 <header role="banner" id="top" class="navbar navbar-static-top bs-docs-nav">
     <div class="container">
