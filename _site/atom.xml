@@ -4,13 +4,49 @@
    <title>丁小样同学博客</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-09-03T10:39:02+08:00</updated>
+   <updated>2015-09-03T11:25:04+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
      <email>crane.ding@163.com</email>
    </author>
 
+   
+   <entry>
+     <title>微信分享缩略图</title>
+     <link href="http://blog.dinghz.com/2015/09/03/weixinicon.html"/>
+     <updated>2015-09-03T00:00:00+08:00</updated>
+     <id>http://blog.dinghz.com/2015/09/03/weixinicon</id>
+     <content type="html">&lt;h3&gt;有微信公众号&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;有微信公众号，在页面分享的时候显示缩略，只需要接入微信JS-SDK即可，其官方文档也写的很全，详情请看&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html&quot;&gt;官方文档&lt;/a&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E5.88.86.E4.BA.AB.E6.8E.A5.E5.8F.A3&quot;&gt;3 分享接口&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0.E6.9C.8B.E5.8F.8B.E5.9C.88.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3&quot;&gt;3.1 获取“分享到朋友圈”按钮点击状态及自定义分享内容接口&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E7.BB.99.E6.9C.8B.E5.8F.8B.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3&quot;&gt;3.2 获取“分享给朋友”按钮点击状态及自定义分享内容接口&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0QQ.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3&quot;&gt;3.3 获取“分享到QQ”按钮点击状态及自定义分享内容接口&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0.E8.85.BE.E8.AE.AF.E5.BE.AE.E5.8D.9A.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3&quot;&gt;3.4 获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0QQ.E7.A9.BA.E9.97.B4.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3&quot;&gt;3.5 获取“分享到QQ空间”按钮点击状态及自定义分享内容接口&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;无微信公众号&lt;/h3&gt;
+
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;没有微信公众号，但也想在微信分享的时候显示缩略图，怎么办？网上很多都说用微信浏览器自带的&lt;code&gt;WeixinJSBridge&lt;/code&gt;来处理，怎么都不生效呢？&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;从微信6起，&lt;code&gt;WeixinJSBridge&lt;/code&gt;这个对象已经不再支持了，所以不能再用&lt;code&gt;WeixinJSBridge&lt;/code&gt;了。目前只有按照微信默认的规则来显示，微信的规则是以当前页面的标题作为分享的标题，以页面中第一张符合300*300以上尺寸的图片作为缩略图，没有符合的图片，则不显示缩略图。同时图片最好放在body的第一元素，不然不一定会显示。&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;想分享时显示缩略图，但页面又不想显示怎么办？请看一下做法：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;wx_share_icon&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;display: none;&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/images/300_300.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;300px&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;300px&amp;quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+   </entry>
    
    <entry>
      <title>5年前自己写的一个小框架</title>
@@ -507,113 +543,6 @@ http://www.xxx.com/abc/file3.zip
 &lt;p&gt;可以决定是使用新版本，还是恢复到旧版本 &lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; 【新的主进程号或旧的主进程号】
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-   </entry>
-   
-   <entry>
-     <title>confluence安装手册</title>
-     <link href="http://blog.dinghz.com/2014/11/15/confluence.html"/>
-     <updated>2014-11-15T00:00:00+08:00</updated>
-     <id>http://blog.dinghz.com/2014/11/15/confluence</id>
-     <content type="html">&lt;h3&gt;环境准备&lt;/h3&gt;
-
-&lt;p&gt;操作系统：Linux&lt;/p&gt;
-
-&lt;p&gt;confluence版本：5.4.4&lt;/p&gt;
-
-&lt;p&gt;数据库：mysql 5 &lt;/p&gt;
-
-&lt;h3&gt;软件下载&lt;/h3&gt;
-
-&lt;p&gt;confluence安装包：&lt;a href=&quot;https://www.atlassian.com/software/confluence/download&quot;&gt;atlassian-confluence-5.4.4-x64_1.bin&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;confluence中文包：&lt;a href=&quot;http://dl.iteye.com/topics/download/a8e03f06-b333-35cf-9403-90a842c407fa&quot;&gt;JIRA-Language-STD-CN.jar&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;confluence破解包：&lt;a href=&quot;http://dl.iteye.com/topics/download/2e3ec41d-92aa-348f-9c75-73f10b6fba06&quot;&gt;jira_crack.zip&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;mysql驱动：&lt;a href=&quot;http://dl.iteye.com/topics/download/7f00832a-b07e-32cb-856f-ce49c545f48a&quot;&gt;mysql-connector-java-5.1.34-bin.jar &lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;数据库准备&lt;/h3&gt;
-
-&lt;p&gt;创建jiradb数据库 &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-mysql&quot; data-lang=&quot;mysql&quot;&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;confluence&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CHARACTER&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;COLLATE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;utf8_bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;权限用户授权&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-mysql&quot; data-lang=&quot;mysql&quot;&gt;&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;DROP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ALTER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;INDEX&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;confluence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;db user&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;db hostname&amp;gt;&amp;#39;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;lt;db password&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-
-&lt;span class=&quot;n&quot;&gt;flush&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;privileges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-
-&lt;span class=&quot;cm&quot;&gt;/*  &lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;例如：  &lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER,INDEX on confluence.* TO &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;123456&amp;#39;;  &lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;*/&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;系统环境变量&lt;/h3&gt;
-
-&lt;p&gt;设置语言为zh&lt;em&gt;CN，如果语言为en&lt;/em&gt;US则confluence汉化无法生效，最好在.profile文件中配置&lt;/p&gt;
-
-&lt;p&gt;在~/.profile文件最后加以下两行&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8  
-&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LANGUAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN:zh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;重新加载环境变量（在命令行中输入） &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/.profile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;查看locale&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;locale  
-&lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN.UTF-8  
-&lt;span class=&quot;nv&quot;&gt;LANGUAGE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;zh_CN:zh  
-&lt;span class=&quot;nv&quot;&gt;LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_NUMERIC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_TIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_COLLATE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_MONETARY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_MESSAGES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_PAPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_ADDRESS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_TELEPHONE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_MEASUREMENT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_IDENTIFICATION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;zh_CN.UTF-8&amp;quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;LC_ALL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;安装confluence（使用root用户安装）&lt;/h3&gt;
-
-&lt;p&gt;授予执行权限 &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;chmod +x atlassian-confluence-5.4.4-x64_1.bin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;安装jira（安装过程中会提示输入相关配置） &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./atlassian-confluence-5.4.4-x64_1.bin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;关闭confluence（安装后会自动启动服务） &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;service confluence stop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;加载mysql驱动&lt;/h3&gt;
-
-&lt;p&gt;拷贝mysql驱动到jira目录/atlassian/confluence/lib&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cp mysql-connector-java-5.1.34-bin.jar jira目录/atlassian/confluence/lib/  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;配置confluence&lt;/h3&gt;
-
-&lt;p&gt;用浏览器打开confluence的主页面，安装步骤进行配置，其数据库的的配置按照第三步的配置来配置即可。&lt;/p&gt;
-
-&lt;p&gt;需要跟jira进行用户整合的请注意（不需的这一步略过），如果你需要跟jira进行结合，那需要注意在jira系统中有一个jira管理员用户是属于jira-system-administrators组，如果没有jira-system-administrators组，则在jira中进行新增并把用户新增到该组。跟jira结合这一步没有配置好，则无法跟jira进行整合。在配置这个一步时，配置有jira-system-administrators组的jira管理员即可。&lt;/p&gt;
-
-&lt;p&gt;进入界面后，进入插件管理，将中文包插件上传，将提示安装插件成功。重启confluence服务后，中文生效。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;service confluence stop  
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;service confluence start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;破解confluence&lt;/h3&gt;
-
-&lt;p&gt;将atlassian-extras-2.4.jar包替换掉confluence中的atlassian-extras-2.4.jar，然后重启confluence服务即可。 &lt;/p&gt;
-
-&lt;h3&gt;安装完成&lt;/h3&gt;
-
-&lt;h3&gt;备注&lt;/h3&gt;
-
-&lt;p&gt;打开confluence官网忙，下载安装包难，这个原因就不多说了 &lt;/p&gt;
-
-&lt;p&gt;生成License比较慢，跟上一个问题一样 &lt;/p&gt;
-</content>
    </entry>
    
 

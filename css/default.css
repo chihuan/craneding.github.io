@@ -169,3 +169,7 @@ ol, ul {
 .footer-bottom {
     font-size: 13px;
 }
+
+.page-indent {
+    text-indent:30px;
+}
