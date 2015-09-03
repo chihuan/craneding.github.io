@@ -8,7 +8,7 @@ markdown: redcarpet
 redcarpet:
     extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
 
-title: 丁小样同学
+title: 丁小样同学博客
 url: http://blog.dinghz.com
 description: 丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！
 keywords: java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3
