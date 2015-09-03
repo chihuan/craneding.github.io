@@ -2,6 +2,7 @@
 layout:       post
 title:        JQueryMobile页面跳转与数据传递
 category:     blogs
+tags:         [js, jquery, jquerymobile]
 description:  JQueryMobile怎样实现页面跳转和进行页面间的数据传递呢？  
 ---
 

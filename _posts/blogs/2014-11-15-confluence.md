@@ -2,6 +2,7 @@
 layout:     post
 title:      confluence安装手册
 category: blogs
+tags:         [wiki]
 description: wiki是个非常好的文档系统。
 ---
 

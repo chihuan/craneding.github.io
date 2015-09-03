@@ -2,6 +2,7 @@
 layout:     post
 title:      nginx平滑升级
 category: blogs
+tags:         [nginx]
 description: nginx怎样在不停机的情况下进行升级呢？
 ---
 

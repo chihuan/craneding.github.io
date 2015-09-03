@@ -2,6 +2,7 @@
 layout:       post
 title:        不翻墙也能更新和管理Android SDK
 category:     blogs
+tags:         [android]
 description:  Android官网已经打不开了，怎么更新Android SDK呢？不用担心自有解决的方法。  
 ---
 

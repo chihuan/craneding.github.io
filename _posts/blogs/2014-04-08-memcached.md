@@ -2,6 +2,7 @@
 layout:     post
 title:      Memcached分布式
 category: blogs
+tags:         [memcached]
 description: Mecached一个高性能的分布式内存对象缓存系统，让我们一起来了解它的特性。
 ---
 

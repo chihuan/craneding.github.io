@@ -2,6 +2,7 @@
 layout:     post
 title:      Linux wget命令整站下载做网站镜像
 category: blogs
+tags:         [linux, shell]
 description: 强大的wget命令不仅可以断点下载文件，还可以网站整站下载。
 ---
 

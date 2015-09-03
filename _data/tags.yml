@@ -1,0 +1,59 @@
+- slug: web
+  name: Web
+  class: label label-warning
+  
+- slug: js
+  name: Javascript
+  class: label label-info
+
+- slug: wechat
+  name: WeChat
+  class: label label-success
+
+- slug: linux
+  name: Linux
+  class: label label-warning
+
+- slug: shell
+  name: Shell
+  class: label label-info
+
+- slug: java
+  name: Java
+  class: label label-success
+
+- slug: mysql
+  name: Mysql
+  class: label label-warning
+
+- slug: android
+  name: Android
+  class: label label-info
+
+- slug: ios
+  name: IOS
+  class: label label-success
+
+- slug: jquery
+  name: JQuery
+  class: label label-warning
+
+- slug: jquerymobile
+  name: JQueryMobile
+  class: label label-info
+
+- slug: wiki
+  name: Wiki
+  class: label label-success
+
+- slug: memcached
+  name: Memcached
+  class: label label-warning
+
+- slug: nginx
+  name: Nginx
+  class: label label-info
+
+- slug: phonegap
+  name: PhoneGap
+  class: label label-success

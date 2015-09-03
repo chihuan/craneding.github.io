@@ -6,9 +6,32 @@ layout: home
     <div class="row">
         <div style='height:30px;'>&nbsp;</div>
         {% for post in paginator.posts %}
+
+{% if post.tags.size > 0 %}
+    {% capture tags_content %}{% if post.tags.size == 1 %}<i class="fa-tag glyphicon glyphicon-tags"></i>{% else %}<i class="fa-tags glyphicon glyphicon-tags"></i>{% endif %} ：{% endcapture %}
+    {% for post_tag in post.tags %}
+        {% assign tag = '' %}
+        {% for data_tag in site.data.tags %}
+            {% if data_tag.slug == post_tag %}
+                {% assign tag = data_tag %}
+            {% endif %}
+        {% endfor %}
+        {% if tag == '' %}
+	    {% capture tags_content_temp %}{{ tags_content }}&nbsp;<code>{{ post_tag }}</code>{% if forloop.last == false %}&nbsp;{% endif %}{% endcapture %}
+            {% assign tags_content = tags_content_temp %}
+        {% endif %}
+        {% if tag != '' %}
+            {% capture tags_content_temp %}{{ tags_content }}&nbsp;<code class='{{ tag.class }}'>{{ tag.name }}</code>{% if forloop.last == false %}&nbsp;{% endif %}{% endcapture %}
+            {% assign tags_content = tags_content_temp %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% assign tags_content = '' %}
+{% endif %}
+
         <div class="jumbotron">
-            <h2>{{ post.title }}</h2>
-            <p class="date">日期：{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</p>
+            <h2>{{ post.title }}<small> <span class="label label-info">{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</span></small></h2>
+	    <p class="fa">{{ tags_content }}</p>
             <p class="description">{{ post.description }}</p>
             <p>
                 <a href="{{ post.url }}" class="btn btn-primary" role="button">阅读</a>

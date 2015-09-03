@@ -2,6 +2,7 @@
 layout:       post
 title:        微信分享缩略图
 category:     blogs
+tags:         [web, js, wechat]
 description:  页面怎样在微信分享中显示缩略图？为什么网上很多做法都是不生效的呢？
 ---
 

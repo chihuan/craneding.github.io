@@ -2,6 +2,7 @@
 layout:     post
 title:      手机app快速开发的经验
 category: blogs
+tags:         [phonegap, android, ios]
 description: 这是个人在手机app开发这一块的一些经验总结，希望能给大家一个好的参考。
 ---
 

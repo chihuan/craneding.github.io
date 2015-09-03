@@ -2,6 +2,7 @@
 layout:     post
 title:      HTML5 Canvas 的初试
 category: blogs
+tags:         [web, js]
 description: 学习HTML5 Canvas，利用其画板来实现类似ps软件中的某些模块功能。
 ---
 

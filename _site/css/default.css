@@ -15,7 +15,6 @@ ol, ul {
 }
 
 .index-content .date {
-    color: #999;
     font-size: 14px;
 }
 
@@ -172,4 +171,12 @@ ol, ul {
 
 .page-indent {
     text-indent:30px;
+}
+
+.index-content .fa {
+    font-size: 14px;
+}
+
+.fa a {
+    color:white;
 }
