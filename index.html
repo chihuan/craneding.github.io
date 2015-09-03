@@ -31,7 +31,7 @@ layout: home
 
         <div class="jumbotron">
             <h2>{{ post.title }}<small> <span class="label label-info">{{ post.date | date_to_utc | date: "%Y-%m-%d" }}</span></small></h2>
-	    <p class="fa">{{ tags_content }}</p>
+	    <p class="hidden-xs fa">{{ tags_content }}</p>
             <p class="description">{{ post.description }}</p>
             <p>
                 <a href="{{ post.url }}" class="btn btn-primary" role="button">阅读</a>
