@@ -2,7 +2,7 @@
 layout:       post
 title:        搭建Oracle数据库的备份服务器
 category:     blogs
-tags:         [oralce,ssh]
+tags:         [oracle,ssh]
 description:  怎样搭建Oracle数据库的备份服务器呢？
 ---
 

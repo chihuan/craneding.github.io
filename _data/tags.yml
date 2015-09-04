@@ -77,3 +77,7 @@
 - slug: tomcat
   name: Tomcat
   class: label label-danger
+
+- slug: ssh
+  name: SSH
+  class: label label-warning
