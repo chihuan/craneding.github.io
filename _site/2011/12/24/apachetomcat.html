@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Apache与Tomcat搭建集群 | 丁小样同学博客</title>
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
+    
+    
+    <meta name="keywords" content="java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/144_144.png" /> 
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/144_144.png" /> 
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+<div id="wx_share_icon" style="display: none;">
+    <img alt="丁小样同学" src="/images/300_300.jpg" width="300px" height="300px" />
+</div>
+<header role="banner" id="top" class="navbar navbar-fixed-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学博客</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class=" /2011/12/24/apachetomcat.html">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class=" /2011/12/24/apachetomcat.html">
+                    <a href="/navigations/archives.html">笔迹</a>
+                </li>
+                
+                
+                
+                <li class=" /2011/12/24/apachetomcat.html">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class=" /2011/12/24/apachetomcat.html">
+                    <a href="/navigations/contact.html">关于</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+
+
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+            
+            
+        
+        
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+            
+            
+        
+        
+    
+
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">Apache与Tomcat搭建集群 <small><span class="label label-info">2011-12-24</span></small></h2>
+
+        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code>apache</code>&nbsp;&nbsp;<code>tomcat</code></p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;早前就解了Apache和Tomcat可以搭建集群,可以负载均衡,升级就不需要停交易,真是强大。昨晚看了google reader的收藏又再次看到这篇文章,于是今天在星巴克研究了一把,发现真的很强大,负载均衡、session复制都可以做到,以后再也不用为升级系统而烦恼了。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下面就来讲讲是搭建集群的过程，首页需要下载apahce和tomcat（当然需要安装jdk,这就不多讲了,大家应该懂得），本次实践我是在windows系统的环境下进行的，apache是2.2.21版本，tomcat是7.0.16和7.0.23两个版本。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先讲讲tomcat需要配置的文件，假设Tomcat 7.0.16为服务器A，Tomcat 7.0.23为服务器B。注意如果你的Tomcat都是放在同一台机子上,那你要修改端口，确保端口不要冲突。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器A的server.xml配置文件中的Engine节点中新增jvmRoute属性，值可以自己定义,例如jvm1,同时新增Cluster节点的所有内容,如果tomcat是在同一台机子的就需要注意Receiver节点的port属性不能冲突，例如：4000</p>
+
+<p>服务器A的server.xml配置文件 </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;Connector</span> <span class="na">port=</span><span class="s">&quot;8080&quot;</span> <span class="na">protocol=</span><span class="s">&quot;HTTP/1.1&quot;</span> <span class="na">connectionTimeout=</span><span class="s">&quot;20000&quot;</span> <span class="na">redirectPort=</span><span class="s">&quot;8443&quot;</span> <span class="nt">/&gt;</span>  
+
+<span class="nt">&lt;Connector</span> <span class="na">port=</span><span class="s">&quot;8009&quot;</span> <span class="na">protocol=</span><span class="s">&quot;AJP/1.3&quot;</span> <span class="na">redirectPort=</span><span class="s">&quot;8443&quot;</span> <span class="nt">/&gt;</span>  
+
+<span class="nt">&lt;Engine</span> <span class="na">name=</span><span class="s">&quot;Catalina&quot;</span> <span class="na">defaultHost=</span><span class="s">&quot;localhost&quot;</span> <span class="na">jvmRoute=</span><span class="s">&quot;jvm1&quot;</span><span class="nt">&gt;</span>  
+
+<span class="nt">&lt;Cluster</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;</span> <span class="na">hannelSendOptions=</span><span class="s">&quot;8&quot;</span><span class="nt">&gt;</span>  
+        <span class="nt">&lt;Manager</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.DeltaManager&quot;</span> <span class="na">expireSessionsOnShutdown=</span><span class="s">&quot;false&quot;</span> <span class="na">notifyListenersOnReplication=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>  
+
+        <span class="nt">&lt;Channel</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.group.GroupChannel&quot;</span><span class="nt">&gt;</span>    
+             <span class="nt">&lt;Membership</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.membership.McastService&quot;</span> <span class="na">address=</span><span class="s">&quot;228.0.0.4&quot;</span> <span class="na">port=</span><span class="s">&quot;45564&quot;</span> <span class="na">frequency=</span><span class="s">&quot;500&quot;</span> <span class="na">dropTime=</span><span class="s">&quot;3000&quot;</span><span class="nt">/&gt;</span>    
+             <span class="nt">&lt;Receiver</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.transport.nio.NioReceiver&quot;</span> <span class="na">address=</span><span class="s">&quot;auto&quot;</span>    
+                       <span class="na">port=</span><span class="s">&quot;4000&quot;</span>  
+                       <span class="na">autoBind=</span><span class="s">&quot;100&quot;</span>  
+                       <span class="na">selectorTimeout=</span><span class="s">&quot;5000&quot;</span>  
+                       <span class="na">maxThreads=</span><span class="s">&quot;6&quot;</span> <span class="nt">/&gt;</span>  
+
+             <span class="nt">&lt;Sender</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.transport.ReplicationTransmitter&quot;</span><span class="nt">&gt;</span>  
+               <span class="nt">&lt;Transport</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.transport.nio.PooledParallelSender&quot;</span><span class="nt">/&gt;</span>  
+             <span class="nt">&lt;/Sender&gt;</span>  
+             <span class="nt">&lt;Interceptor</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.group.interceptors.TcpFailureDetector&quot;</span><span class="nt">/&gt;</span>  
+             <span class="nt">&lt;Interceptor</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor&quot;</span><span class="nt">/&gt;</span>  
+
+             <span class="nt">&lt;Valve</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.tcp.ReplicationValve&quot;</span>  
+                  <span class="na">filter=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>  
+           <span class="nt">&lt;Valve</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.JvmRouteBinderValve&quot;</span><span class="nt">/&gt;</span>  
+
+           <span class="nt">&lt;Deployer</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.deploy.FarmWarDeployer&quot;</span>  
+                     <span class="na">tempDir=</span><span class="s">&quot;/tmp/war-temp/&quot;</span>  
+                     <span class="na">deployDir=</span><span class="s">&quot;/tmp/war-deploy/&quot;</span>  
+                     <span class="na">watchDir=</span><span class="s">&quot;/tmp/war-listen/&quot;</span>  
+                     <span class="na">watchEnabled=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>  
+
+           <span class="nt">&lt;ClusterListener</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener&quot;</span><span class="nt">/&gt;</span>  
+           <span class="nt">&lt;ClusterListener</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.ClusterSessionListener&quot;</span><span class="nt">/&gt;</span>  
+           <span class="nt">&lt;/Channel&gt;</span>  
+      <span class="nt">&lt;/Cluster&gt;</span>  
+......  
+
+<span class="nt">&lt;/Engine&gt;</span>
+</code></pre></div>
+<p>服务器B的server.xml配置文件,其中不同的是8180、8109和4001的几个端口的修改和jvmRoute值的不同,其它都一样</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;Connector</span> <span class="na">port=</span><span class="s">&quot;8180&quot;</span> <span class="na">protocol=</span><span class="s">&quot;HTTP/1.1&quot;</span> <span class="na">connectionTimeout=</span><span class="s">&quot;20000&quot;</span> <span class="na">redirectPort=</span><span class="s">&quot;8443&quot;</span> <span class="nt">/&gt;</span>  
+
+<span class="nt">&lt;Connector</span> <span class="na">port=</span><span class="s">&quot;8109&quot;</span> <span class="na">protocol=</span><span class="s">&quot;AJP/1.3&quot;</span> <span class="na">redirectPort=</span><span class="s">&quot;8443&quot;</span> <span class="nt">/&gt;</span>  
+
+<span class="nt">&lt;Engine</span> <span class="na">name=</span><span class="s">&quot;Catalina&quot;</span> <span class="na">defaultHost=</span><span class="s">&quot;localhost&quot;</span> <span class="na">jvmRoute=</span><span class="s">&quot;jvm2&quot;</span><span class="nt">&gt;</span>  
+
+<span class="nt">&lt;Cluster</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;</span> <span class="na">hannelSendOptions=</span><span class="s">&quot;8&quot;</span><span class="nt">&gt;</span>  
+        <span class="nt">&lt;Manager</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.DeltaManager&quot;</span> <span class="na">expireSessionsOnShutdown=</span><span class="s">&quot;false&quot;</span> <span class="na">notifyListenersOnReplication=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>  
+
+        <span class="nt">&lt;Channel</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.group.GroupChannel&quot;</span><span class="nt">&gt;</span>    
+             <span class="nt">&lt;Membership</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.membership.McastService&quot;</span> <span class="na">address=</span><span class="s">&quot;228.0.0.4&quot;</span> <span class="na">port=</span><span class="s">&quot;45564&quot;</span> <span class="na">frequency=</span><span class="s">&quot;500&quot;</span> <span class="na">dropTime=</span><span class="s">&quot;3000&quot;</span><span class="nt">/&gt;</span>    
+             <span class="nt">&lt;Receiver</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.transport.nio.NioReceiver&quot;</span> <span class="na">address=</span><span class="s">&quot;auto&quot;</span>    
+                       <span class="na">port=</span><span class="s">&quot;4001&quot;</span>  
+                       <span class="na">autoBind=</span><span class="s">&quot;100&quot;</span>  
+                       <span class="na">selectorTimeout=</span><span class="s">&quot;5000&quot;</span>  
+                       <span class="na">maxThreads=</span><span class="s">&quot;6&quot;</span> <span class="nt">/&gt;</span>  
+
+             <span class="nt">&lt;Sender</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.transport.ReplicationTransmitter&quot;</span><span class="nt">&gt;</span>  
+               <span class="nt">&lt;Transport</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.transport.nio.PooledParallelSender&quot;</span><span class="nt">/&gt;</span>  
+             <span class="nt">&lt;/Sender&gt;</span>  
+             <span class="nt">&lt;Interceptor</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.group.interceptors.TcpFailureDetector&quot;</span><span class="nt">/&gt;</span>  
+             <span class="nt">&lt;Interceptor</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor&quot;</span><span class="nt">/&gt;</span>  
+
+             <span class="nt">&lt;Valve</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.tcp.ReplicationValve&quot;</span>  
+                  <span class="na">filter=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span>  
+           <span class="nt">&lt;Valve</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.JvmRouteBinderValve&quot;</span><span class="nt">/&gt;</span>  
+
+           <span class="nt">&lt;Deployer</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.deploy.FarmWarDeployer&quot;</span>  
+                     <span class="na">tempDir=</span><span class="s">&quot;/tmp/war-temp/&quot;</span>  
+                     <span class="na">deployDir=</span><span class="s">&quot;/tmp/war-deploy/&quot;</span>  
+                     <span class="na">watchDir=</span><span class="s">&quot;/tmp/war-listen/&quot;</span>  
+                     <span class="na">watchEnabled=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>  
+
+           <span class="nt">&lt;ClusterListener</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.JvmRouteSessionIDBinderListener&quot;</span><span class="nt">/&gt;</span>  
+           <span class="nt">&lt;ClusterListener</span> <span class="na">className=</span><span class="s">&quot;org.apache.catalina.ha.session.ClusterSessionListener&quot;</span><span class="nt">/&gt;</span>  
+           <span class="nt">&lt;/Channel&gt;</span>  
+      <span class="nt">&lt;/Cluster&gt;</span>  
+......  
+
+<span class="nt">&lt;/Engine&gt;</span>
+</code></pre></div>
+<p>tomcat配置好了，为了session复制，我们还需要在应用的web.xml文件中添加<distributeable/>这个一个配置，那接下来我们就来讲讲apache的配置，需要修改apache的httpd.conf文件，将去掉一下这些的注释，使其生效 </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">Include conf/extra/httpd-vhosts.conf  
+
+LoadModule negotiation_module modules/mod_negotiation.so  
+LoadModule proxy_module modules/mod_proxy.so  
+LoadModule proxy_ajp_module modules/mod_proxy_ajp.so  
+LoadModule proxy_balancer_module modules/mod_proxy_balancer.so  
+LoadModule proxy_connect_module modules/mod_proxy_connect.so  
+LoadModule proxy_ftp_module modules/mod_proxy_ftp.so  
+LoadModule proxy_http_module modules/mod_proxy_http.so 
+</code></pre></div>
+<p>在http.conf的最后面新增以下配置，使apache可以反向代理和负载均衡,注意这里的端口是tomcat的端口,同时route是刚才配置的jvmRoute的值,不能配错 </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">    ProxyRequests Off  
+    <span class="nt">&lt;proxy</span> <span class="err">balancer://loadbalancer</span><span class="nt">&gt;</span>   
+    BalancerMember http://127.0.0.1:8080 loadfactor=1 route=jvm1  
+    BalancerMember http://127.0.0.1:8180 loadfactor=1 route=jvm2  
+    <span class="nt">&lt;/proxy&gt;</span>  
+</code></pre></div>
+<p>下面是httpd-vhosts.conf文件的配置,其它就不多讲了，&quot;ProxyPass /google !&quot;是可以配置/google地址不反向代理，那么输入地址/google就会在你apahce的根目录里面找，&quot;/baidu&quot; 是配置了方向代理到百度，以上这两个配置主要是看个人需求，主要是想说明怎么配置方向代理，而&quot;ProxyPass / balancer://loadbalancer/ stickysession=jsessionid nofailover=On&quot; 这两句才是重点，主要是配置“/”都反向代理到tomcat，并且是负载均衡的模式 </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;VirtualHost</span> <span class="err">*:80</span><span class="nt">&gt;</span>  
+    ServerAdmin webmaster@dummy-host.xiaoyang.com  
+    DocumentRoot &quot;D:/Program Files/Apache Software Foundation/Apache2.2/docs/dummy-host.xiaoyang.com&quot;  
+    ServerName dummy-host.xiaoyang.com  
+    ServerAlias www.dummy-host.xiaoyang.com  
+    ErrorLog &quot;logs/dummy-host.xiaoyang.com-error.log&quot;  
+    CustomLog &quot;logs/dummy-host.xiaoyang.com-access.log&quot; common  
+
+        ProxyPass /google !  
+
+        ProxyPass /baidu http://www.baidu.com  
+    ProxyPassReverse /baidu http://www.baidu.com  
+
+    ProxyPass / balancer://loadbalancer/ stickysession=jsessionid nofailover=On  
+    ProxyPassReverse / balancer://loadbalancer/  
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<p>好了这就完成了，然后就可以打开你的apache的地址了，你不停的刷新页面,会被负载分配到两个tomcat服务其上面其，同时会话是相同的。</p>
+
+
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2010/04/19/canvasdemo.html" title="HTML5 Canvas 的初试">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">HTML5 Canvas 的初试&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2012/01/02/nginx.html" title="Nginx初步实践">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Nginx初步实践</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
+                
+            
+        </div>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+     
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row footer-top">
+      <h4 class="text-center">
+          <img alt="丁小样同学" width="57px" height="57px" src="/images/300_300.jpg" style="border-radius: 12px; background-clip: padding-box;" > &nbsp;<a target="_blank" href="http://weibo.com/craneding/">@丁小样同学出品</a>
+        </h4>      
+    </div>
+    <hr>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15053892号-1</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
