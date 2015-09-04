@@ -57,3 +57,15 @@
 - slug: phonegap
   name: PhoneGap
   class: label label-success
+
+- slug: jira
+  name: Jira
+  class: label label-danger
+
+- slug: svn
+  name: SVN
+  class: label label-warning
+
+- slug: oracle
+  name: Oracle
+  class: label label-info

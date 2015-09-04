@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>shell执行mysql的SQL语句 | 丁小样同学博客</title>
+    <title>丁小样同学博客</title>
     <meta name="author" content="丁小样同学">
     
     <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
@@ -59,25 +59,25 @@
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /page3/index.html">
                     <a href="/index.html">首页</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /page3/index.html">
                     <a href="/navigations/archives.html">笔迹</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /page3/index.html">
                     <a href="/navigations/works.html">作品</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /page3/index.html">
                     <a href="/navigations/contact.html">关于</a>
                 </li>
                 
@@ -91,218 +91,313 @@
     <div class="container">
         <h1>blog.dinghz.com</h1>
 
-        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+        <p>丁小样同学欢迎您!</p>
     </div>
 </div>
 
 
-<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
-
-
-
-    
-    
-        
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-        
-        
-            
-        
-            
-        
-            
-        
-            
-                
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-        
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-
-
-<div class="container-fluid bs-docs-container">
+<div class="container-fluid bs-docs-container index-content">
     <div class="row">
-        <h2 class="page-header" id="download">shell执行mysql的SQL语句 <small><span class="label label-info">2014-12-31</span></small></h2>
+        <div style='height:30px;'>&nbsp;</div>
+        
 
-        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-warning'>Mysql</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code>&nbsp;&nbsp;<code class='label label-info'>Shell</code></p>
 
-        <h3>在脚本中执行mysql的SQL语句</h3>
-<div class="highlight"><pre><code class="language-mysql" data-lang="mysql">    <span class="n">mysql</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>    
-      <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tableA</span> <span class="n">a</span><span class="p">,</span> <span class="n">tableB</span> <span class="n">b</span>   
-      <span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>  
-    <span class="n">EOF</span> 
-</code></pre></div>
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+        
+        
+            
+            
+        
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
 
-        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
-            <div class="pull-right">
-                
-                <a href="/2014/12/31/shell.html" title="shell多行文字合并为一行">
-                    <button type="button" class="btn btn-primary">
-                        <span class="paging">shell多行文字合并为一行&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
-                    </button>
-                </a>
-                
-            </div>
-            <div class="pull-left">
-                
-                <a href="/2015/07/05/linuxwget.html" title="Linux wget命令整站下载做网站镜像">
-                    <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Linux wget命令整站下载做网站镜像</span>
-                    </button>
-                </a>
-                
-            </div>
+
+        <div class="jumbotron">
+            <h2>在RedHat 5上安装Oracle<small> <span class="label label-info">2013-04-02</span></small></h2>
+	    <p class="hidden-xs fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ：&nbsp;<code class='label label-info'>Oracle</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code></p>
+            <p class="description">安装Oracle那是相当麻烦，特别是系统太新或系统旧的情况下会有很多奇怪问题。</p>
+            <p>
+                <a href="/2013/04/02/installoracle.html" class="btn btn-primary" role="button">阅读</a>
+            </p>
         </div>
         
-        <div class="comment">
+
+
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
                 
-                <div class="comment-cnt">
-                    <div class="ds-thread"></div>
-                </div>
-                
             
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+
+
+        <div class="jumbotron">
+            <h2>Nginx初步实践<small> <span class="label label-info">2012-01-02</span></small></h2>
+	    <p class="hidden-xs fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ：&nbsp;<code class='label label-info'>Nginx</code></p>
+            <p class="description">自己动手学习nginx，尝试搭建高效的web服务器。</p>
+            <p>
+                <a href="/2012/01/02/nginx.html" class="btn btn-primary" role="button">阅读</a>
+            </p>
         </div>
+        
+
+
+    
+    
+        
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+        
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+
+
+        <div class="jumbotron">
+            <h2>HTML5 Canvas 的初试<small> <span class="label label-info">2010-04-19</span></small></h2>
+	    <p class="hidden-xs fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ：&nbsp;<code class='label label-warning'>Web</code>&nbsp;&nbsp;<code class='label label-info'>Javascript</code></p>
+            <p class="description">学习HTML5 Canvas，利用其画板来实现类似ps软件中的某些模块功能。</p>
+            <p>
+                <a href="/2010/04/19/canvasdemo.html" class="btn btn-primary" role="button">阅读</a>
+            </p>
+        </div>
+        
     </div>
-
-    
-
-    
-    <script type="text/javascript">
-var duoshuoQuery = {short_name:"dinghz"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-     
 </div>
+
+
+<nav style="margin: 0 auto; text-align: center;">
+    <ul class="pagination">
+        
+        
+        <li><a href="/">1</a></li>
+        
+        
+        
+        <li><a href="/page2/">2</a></li>
+        
+        
+        
+        <li class="active"><a href="javascript:void(0);">3 <span class="sr-only">(current)</span></a></li>
+        
+        
+    </ul>
+</nav>
+
+
 
 
 <footer class="footer">

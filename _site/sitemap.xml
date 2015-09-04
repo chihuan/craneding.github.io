@@ -102,6 +102,21 @@
     </url>
     
     <url>
+        <loc>http://blog.dinghz.com/2013/04/02/installsvn.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com/2013/04/02/installoracle.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com/2012/01/02/nginx.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://blog.dinghz.com/2010/04/19/canvasdemo.html</loc>
         <priority>0.8</priority>
     </url>

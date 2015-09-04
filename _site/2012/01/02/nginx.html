@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Nginx初步实践 | 丁小样同学博客</title>
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
+    
+    
+    <meta name="keywords" content="java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/144_144.png" /> 
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/144_144.png" /> 
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+<div id="wx_share_icon" style="display: none;">
+    <img alt="丁小样同学" src="/images/300_300.jpg" width="300px" height="300px" />
+</div>
+<header role="banner" id="top" class="navbar navbar-fixed-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学博客</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class=" /2012/01/02/nginx.html">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class=" /2012/01/02/nginx.html">
+                    <a href="/navigations/archives.html">笔迹</a>
+                </li>
+                
+                
+                
+                <li class=" /2012/01/02/nginx.html">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class=" /2012/01/02/nginx.html">
+                    <a href="/navigations/contact.html">关于</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+
+
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">Nginx初步实践 <small><span class="label label-info">2012-01-02</span></small></h2>
+
+        <p class="fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-info'>Nginx</code></p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“nginx与apache相比有多高效”，相信大家都挺多，今天重点不是讲这个，而是记录一下自己学习了Nginx的学习和实践的过程。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这两天下载了nginx（<a href="http://nginx.org/en/download.html">官网下载地址</a>）看了一些相关文档，今天就动手实践一下，本次实践是主要的功能是在nginx中实现负载均衡和反向代理。</p>
+
+<h3>nginx.conf配置文件</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#用户 用户组  </span>
+<span class="c">#user www www;  </span>
+<span class="c">#工作进程  </span>
+worker_processes  1<span class="p">;</span>  
+
+<span class="c">#error_log  logs/error.log;  </span>
+<span class="c">#error_log  logs/error.log  notice;  </span>
+<span class="c">#error_log  logs/error.log  info;  </span>
+
+<span class="c">#pid文件位置  </span>
+<span class="c">#pid        logs/nginx.pid;  </span>
+
+
+events <span class="o">{</span>  
+    <span class="c">#工作进程的最大连接数量  </span>
+    worker_connections  1024<span class="p">;</span>  
+<span class="o">}</span>  
+
+
+http <span class="o">{</span>  
+    include       mime.types<span class="p">;</span>  
+    default_type  application/octet-stream<span class="p">;</span>  
+
+    <span class="c">#日志的格式  </span>
+    <span class="c">#log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;  </span>
+    <span class="c">#                  &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;  </span>
+    <span class="c">#                  &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;  </span>
+
+    <span class="c">#access_log  logs/access.log  main;  </span>
+
+    sendfile        on<span class="p">;</span>  
+    <span class="c">#tcp_nopush     on;  </span>
+
+    <span class="c">#keepalive_timeout  0;  </span>
+    keepalive_timeout  65<span class="p">;</span>  
+
+    <span class="c">#gzip  on;  </span>
+
+    server <span class="o">{</span>  
+        listen       80<span class="p">;</span>  
+        server_name  localhost<span class="p">;</span>  
+
+        <span class="c">#charset koi8-r;  </span>
+
+        <span class="c">#access_log  logs/host.access.log  main;  </span>
+
+        location / <span class="o">{</span>  
+            root   html<span class="p">;</span>  
+            index  index.html index.htm<span class="p">;</span>  
+        <span class="o">}</span>  
+
+        <span class="c">#error_page  404              /404.html;  </span>
+
+        <span class="c"># redirect server error pages to the static page /50x.html  </span>
+        <span class="c">#  </span>
+        error_page   <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span>  /50x.html<span class="p">;</span>  
+        <span class="nv">location</span> <span class="o">=</span> /50x.html <span class="o">{</span>  
+            root   html<span class="p">;</span>  
+        <span class="o">}</span>  
+
+        <span class="c"># proxy the PHP scripts to Apache listening on 127.0.0.1:80  </span>
+        <span class="c">#  </span>
+        <span class="c">#location ~ \.php$ {  </span>
+        <span class="c">#    proxy_pass   http://127.0.0.1;  </span>
+        <span class="c">#}  </span>
+
+        <span class="c"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000  </span>
+        <span class="c">#  </span>
+        <span class="c">#location ~ \.php$ {  </span>
+        <span class="c">#    root           html;  </span>
+        <span class="c">#    fastcgi_pass   127.0.0.1:9000;  </span>
+        <span class="c">#    fastcgi_index  index.php;  </span>
+        <span class="c">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;  </span>
+        <span class="c">#    include        fastcgi_params;  </span>
+        <span class="c">#}  </span>
+
+        <span class="c"># deny access to .htaccess files, if Apache&#39;s document root  </span>
+        <span class="c"># concurs with nginx&#39;s one  </span>
+        <span class="c">#  </span>
+        <span class="c">#location ~ /\.ht {  </span>
+        <span class="c">#    deny  all;  </span>
+        <span class="c">#}  </span>
+    <span class="o">}</span>  
+
+    <span class="c">#配置自己的虚拟主机  </span>
+    server <span class="o">{</span>  
+        listen       80<span class="p">;</span>  
+        <span class="c">#域名  </span>
+        server_name  www.xiaoyang.com<span class="p">;</span>  
+        <span class="c">#日志文件路径  </span>
+        access_log  logs/xiaoyang.access.log<span class="p">;</span>  
+
+        <span class="c">#1、负载均衡-轮询（默认）  </span>
+        <span class="c">#每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。  </span>
+        <span class="c">#upstream  tomcats   {  </span>
+        <span class="c">#   server   127.0.0.1:8080;   </span>
+        <span class="c">#   server   127.0.0.1:8180;  </span>
+        <span class="c">#}  </span>
+
+        <span class="c">#2、负载均衡-weight  </span>
+        <span class="c">#指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。  </span>
+        <span class="c">#upstream  tomcats   {  </span>
+        <span class="c">#   server   127.0.0.1:8080 weight=3;   </span>
+        <span class="c">#   server   127.0.0.1:8180 weight=7;  </span>
+        <span class="c">#}  </span>
+
+        <span class="c">#3、负载均衡-ip_hash  </span>
+        <span class="c">#每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。  </span>
+        <span class="c">#upstream  tomcats   {  </span>
+        <span class="c">#   ip_hash;  </span>
+        <span class="c">#   server   127.0.0.1:8080;   </span>
+        <span class="c">#   server   127.0.0.1:8180;  </span>
+        <span class="c">#}  </span>
+
+        <span class="c">#负载均衡  </span>
+        upstream  tomcats   <span class="o">{</span>  
+            server   127.0.0.1:8080 <span class="nv">weight</span><span class="o">=</span>3<span class="p">;</span>   
+            server   127.0.0.1:8180 <span class="nv">weight</span><span class="o">=</span>7<span class="p">;</span>  
+        <span class="o">}</span>  
+
+        <span class="c">#/都进行反向代理  </span>
+        location / <span class="o">{</span>  
+            root   html<span class="p">;</span>    
+            index  index.html index.htm<span class="p">;</span>  
+            proxy_pass        http://tomcats<span class="p">;</span>  
+            proxy_set_header  X-Real-IP  <span class="nv">$remote_addr</span><span class="p">;</span>  
+        <span class="o">}</span>  
+
+        <span class="c">#/images 路径下的全部恳求  </span>
+        location ~ ^/images/ <span class="o">{</span>  
+            root html/images<span class="p">;</span>  
+        <span class="o">}</span>  
+
+        <span class="c">#location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {  </span>
+        <span class="c">#    root html/images/;  </span>
+        <span class="c">#    expires 24h;  </span>
+        <span class="c">#}  </span>
+
+    <span class="o">}</span>  
+
+
+    <span class="c"># HTTPS server  </span>
+    <span class="c">#  </span>
+    <span class="c">#server {  </span>
+    <span class="c">#    listen       443;  </span>
+    <span class="c">#    server_name  localhost;  </span>
+
+    <span class="c">#    ssl                  on;  </span>
+    <span class="c">#    ssl_certificate      cert.pem;  </span>
+    <span class="c">#    ssl_certificate_key  cert.key;  </span>
+
+    <span class="c">#    ssl_session_timeout  5m;  </span>
+
+    <span class="c">#    ssl_protocols  SSLv2 SSLv3 TLSv1;  </span>
+    <span class="c">#    ssl_ciphers  HIGH:!aNULL:!MD5;  </span>
+    <span class="c">#    ssl_prefer_server_ciphers   on;  </span>
+
+    <span class="c">#    location / {  </span>
+    <span class="c">#        root   html;  </span>
+    <span class="c">#        index  index.html index.htm;  </span>
+    <span class="c">#    }  </span>
+    <span class="c">#}  </span>
+
+<span class="o">}</span>
+</code></pre></div>
+
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2010/04/19/canvasdemo.html" title="HTML5 Canvas 的初试">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">HTML5 Canvas 的初试&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2013/04/02/installoracle.html" title="在RedHat 5上安装Oracle">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;在RedHat 5上安装Oracle</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
+                
+            
+        </div>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+     
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row footer-top">
+      <h4 class="text-center">
+          <img alt="丁小样同学" width="57px" height="57px" src="/images/300_300.jpg" style="border-radius: 12px; background-clip: padding-box;" > &nbsp;<a target="_blank" href="http://weibo.com/craneding/">@丁小样同学出品</a>
+        </h4>      
+    </div>
+    <hr>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15053892号-1</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

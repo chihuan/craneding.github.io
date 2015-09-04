@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>shell执行mysql的SQL语句 | 丁小样同学博客</title>
+    <title>在RedHat 5上安装Oracle | 丁小样同学博客</title>
     <meta name="author" content="丁小样同学">
     
     <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
@@ -59,25 +59,25 @@
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installoracle.html">
                     <a href="/index.html">首页</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installoracle.html">
                     <a href="/navigations/archives.html">笔迹</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installoracle.html">
                     <a href="/navigations/works.html">作品</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installoracle.html">
                     <a href="/navigations/contact.html">关于</a>
                 </li>
                 
@@ -117,29 +117,29 @@
             
         
             
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
                 
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
             
         
         
@@ -160,52 +160,6 @@
                 
             
         
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-        
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
             
         
             
@@ -244,32 +198,30 @@
 
 <div class="container-fluid bs-docs-container">
     <div class="row">
-        <h2 class="page-header" id="download">shell执行mysql的SQL语句 <small><span class="label label-info">2014-12-31</span></small></h2>
+        <h2 class="page-header" id="download">在RedHat 5上安装Oracle <small><span class="label label-info">2013-04-02</span></small></h2>
 
-        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-warning'>Mysql</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code>&nbsp;&nbsp;<code class='label label-info'>Shell</code></p>
+        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-info'>Oracle</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code></p>
 
-        <h3>在脚本中执行mysql的SQL语句</h3>
-<div class="highlight"><pre><code class="language-mysql" data-lang="mysql">    <span class="n">mysql</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>    
-      <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tableA</span> <span class="n">a</span><span class="p">,</span> <span class="n">tableB</span> <span class="n">b</span>   
-      <span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>  
-    <span class="n">EOF</span> 
-</code></pre></div>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近自己动手安装了Oracle，看了网上很多的教程，很都是说的不清不楚的，有的甚至有点误导，让你感觉是超级的麻烦。其实也没那么麻烦，在网上也找到了一篇写的不错的教程，地址：<a href="http://www.cnblogs.com/edwardcmh/archive/2012/11/30/2796559.html">http://www.cnblogs.com/edwardcmh/archive/2012/11/30/2796559.html</a>，不过博客中的3-6这四个步骤我是没有做的，就直接跳过到第七个步骤开始了。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装完了Oracle，测试通过了，不过Oracle是没有设置开机启动的，也就是说你重启了电脑了之后，就得自己手动的启动数据库，这也是比较繁琐的操作，这也找到了一个很好的教程，地址：<a href="http://www.cnblogs.com/edwardcmh/archive/2012/05/11/2495671.html">http://www.cnblogs.com/edwardcmh/archive/2012/05/11/2495671.html</a>或<a href="http://www.oracle-base.com/articles/linux/automating-database-startup-and-shutdown-on-linux.php">http://www.oracle-base.com/articles/linux/automating-database-startup-and-shutdown-on-linux.php</a>按照这篇文章，基本就搞定了Oracle的安装和自动启动。</p>
+
 
         <div style="padding: 5px; margin: 10px 0px; height: 35px;">
             <div class="pull-right">
                 
-                <a href="/2014/12/31/shell.html" title="shell多行文字合并为一行">
+                <a href="/2012/01/02/nginx.html" title="Nginx初步实践">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging">shell多行文字合并为一行&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                        <span class="paging">Nginx初步实践&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
                     </button>
                 </a>
                 
             </div>
             <div class="pull-left">
                 
-                <a href="/2015/07/05/linuxwget.html" title="Linux wget命令整站下载做网站镜像">
+                <a href="/2013/04/02/installsvn.html" title="在Linux系统安装SVN服务器">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Linux wget命令整站下载做网站镜像</span>
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;在Linux系统安装SVN服务器</span>
                     </button>
                 </a>
                 

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>shell执行mysql的SQL语句 | 丁小样同学博客</title>
+    <title>在Linux系统安装SVN服务器 | 丁小样同学博客</title>
     <meta name="author" content="丁小样同学">
     
     <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
@@ -59,25 +59,25 @@
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installsvn.html">
                     <a href="/index.html">首页</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installsvn.html">
                     <a href="/navigations/archives.html">笔迹</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installsvn.html">
                     <a href="/navigations/works.html">作品</a>
                 </li>
                 
                 
                 
-                <li class=" /2014/12/31/shellmysql.html">
+                <li class=" /2013/04/02/installsvn.html">
                     <a href="/navigations/contact.html">关于</a>
                 </li>
                 
@@ -117,27 +117,27 @@
             
         
             
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
                 
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
             
         
             
@@ -160,52 +160,6 @@
                 
             
         
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-        
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
             
         
             
@@ -244,32 +198,32 @@
 
 <div class="container-fluid bs-docs-container">
     <div class="row">
-        <h2 class="page-header" id="download">shell执行mysql的SQL语句 <small><span class="label label-info">2014-12-31</span></small></h2>
+        <h2 class="page-header" id="download">在Linux系统安装SVN服务器 <small><span class="label label-info">2013-04-02</span></small></h2>
 
-        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-warning'>Mysql</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code>&nbsp;&nbsp;<code class='label label-info'>Shell</code></p>
+        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-warning'>SVN</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code></p>
 
-        <h3>在脚本中执行mysql的SQL语句</h3>
-<div class="highlight"><pre><code class="language-mysql" data-lang="mysql">    <span class="n">mysql</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>    
-      <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tableA</span> <span class="n">a</span><span class="p">,</span> <span class="n">tableB</span> <span class="n">b</span>   
-      <span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>  
-    <span class="n">EOF</span> 
-</code></pre></div>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在Linux系统上安装SVN服务器，随便google或百度一下，数都数不完的教程，基本都是教你怎么下载subversion和apache，接着就安装，安装完就配置apache和subversion，居然连svn的权限和用户名密码等都是纯手工操作的，运气好的时候就非常顺利，运气不好就apache运行不起来，说有错，然后就在网上搜怎么解决，最后给你解决了，可以后就真的这么管理用户名和密码吗？真的是一个大问题啊。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;还记得以前在旧的公司就是这么干的，基本新来一个开发人员，你就上去自己修改密码文件，基本所有的密码都是一样的，超级不直观，而且就那么几个人会，其它人还不会操作了。这次经过自己两天的学习，终于找到了很好软件解决了这个问题，就是Subversion Edge，下载Subversion Edge后，安装完后就可以用svn了，完成不用你自己安装apache和配置一大堆的东西，而且它还有非常好的web管理界面，超级方便，天啊，以前不知道，真的太落后了。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subversion Edge的下载地址是：<a href="http://www.collab.net/downloads/subversion">http://www.collab.net/downloads/subversion</a>，其官网也有相当详细的安装说明，安装说明基本就搞定，唯一需要注意的是不能用root用户安装，如果用root用户安装的话，是有问题，所以要注意这一点。</p>
+
 
         <div style="padding: 5px; margin: 10px 0px; height: 35px;">
             <div class="pull-right">
                 
-                <a href="/2014/12/31/shell.html" title="shell多行文字合并为一行">
+                <a href="/2013/04/02/installoracle.html" title="在RedHat 5上安装Oracle">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging">shell多行文字合并为一行&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                        <span class="paging">在RedHat 5上安装Oracle&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
                     </button>
                 </a>
                 
             </div>
             <div class="pull-left">
                 
-                <a href="/2015/07/05/linuxwget.html" title="Linux wget命令整站下载做网站镜像">
+                <a href="/2014/04/08/memcached.html" title="Memcached分布式">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Linux wget命令整站下载做网站镜像</span>
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Memcached分布式</span>
                     </button>
                 </a>
                 
