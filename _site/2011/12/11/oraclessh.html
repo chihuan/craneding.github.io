@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>搭建Oracle数据库的备份服务器 | 丁小样同学博客</title>
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
+    
+    
+    <meta name="keywords" content="java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/144_144.png" /> 
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/144_144.png" /> 
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+<div id="wx_share_icon" style="display: none;">
+    <img alt="丁小样同学" src="/images/300_300.jpg" width="300px" height="300px" />
+</div>
+<header role="banner" id="top" class="navbar navbar-fixed-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学博客</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class=" /2011/12/11/oraclessh.html">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class=" /2011/12/11/oraclessh.html">
+                    <a href="/navigations/archives.html">笔迹</a>
+                </li>
+                
+                
+                
+                <li class=" /2011/12/11/oraclessh.html">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class=" /2011/12/11/oraclessh.html">
+                    <a href="/navigations/contact.html">关于</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+
+
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+            
+            
+        
+        
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+            
+            
+        
+        
+    
+
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">搭建Oracle数据库的备份服务器 <small><span class="label label-info">2011-12-11</span></small></h2>
+
+        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code>oralce</code>&nbsp;&nbsp;<code>ssh</code></p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今天终于自己尝试在Ubuntu Server系统上安装了Oracle xe,那下一步就是怎样对oracle数据库的数据进行备份和导入。公司部门的开发环境的数据库服务器没有备份服务器，如果坏了，那且不是麻烦大了，于是我就开始搭建数据库服务器的备份服务器。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据库服务器我们假设为A，数据库备份服务器假设为B，这首先这两台机子都Linux系统和安装Oracle。</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一步搭建两台机子可以自动的传输文件（SSH 免密码传输，这样就不需要人工输入密码了）</p>
+
+<p>方法一 </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#在A上的命令:  </span>
+    <span class="c">#(连续三次回车,即在本地生成了公钥和私钥,不设置密码)  </span>
+    ssh-keygen -t rsa  
+    <span class="c">#(需要输入密码)  </span>
+    ssh root@172.24.253.2 <span class="s2">&quot;mkdir .ssh;chmod 0700 .ssh&quot;</span>  
+    <span class="c">#(需要输入密码)  </span>
+    scp ~/.ssh/id_rsa.pub B服务器的用户名@B服务器的IP:.ssh/id_rsa.pub   
+<span class="c">#在B上的命令:  </span>
+    <span class="c">#(如果已经存在这个文件, 跳过这条)  </span>
+    touch .ssh/authorized_keys2  
+    <span class="c">#(将id_rsa.pub的内容追加到 authorized_keys2 中)  </span>
+    cat .ssh/id_rsa.pub &gt;&gt; .ssh/authorized_keys2
+</code></pre></div>
+<p>方法二 </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#在A上的命令:  </span>
+    <span class="c">#(连续三次回车,即在本地生成了公钥和私钥,不设置密码)  </span>
+    ssh-keygen -t rsa  
+    <span class="c">#(需要输入密码)  </span>
+    ssh-copy-id -i ~/.ssh/id_rsa.pub <span class="s2">&quot;-p ssh端口 B服务器的用户名@B服务器的IP&quot;</span> 
+</code></pre></div>
+<p>第二步备份数据库数据 </p>
+
+<p>数据导出的几种模式 </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">    <span class="c">#将数据库db1完全导出,用户名system 密码oracle 导出到/home/oracle/db_backup.dmp中  </span>
+      exp system/oracle@db1 <span class="nv">file</span><span class="o">=</span>/home/oracle/db_backup.dmp <span class="nv">full</span><span class="o">=</span>y  
+
+    <span class="c">#将数据库中system用户与sys用户的表导出  </span>
+      exp system/oracle@db1 <span class="nv">file</span><span class="o">=</span>/home/oracle/db_backup.dmp <span class="nv">owner</span><span class="o">=</span><span class="s2">&quot;(system,sys)&quot;</span>  
+
+    <span class="c">#将数据库中的表t_table1、t_table2导出  </span>
+       exp system/oracle@db1 <span class="nv">file</span><span class="o">=</span>/home/oracle/db_backup.dmp <span class="nv">tables</span><span class="o">=</span><span class="s2">&quot;(t_table1,t_table2)&quot;</span>  
+
+    <span class="c">#将数据库中的表table1中的字段filed1以&quot;A&quot;结尾的数据导出  </span>
+      exp system/oracle@db1 <span class="nv">file</span><span class="o">=</span>/home/oracle/db_backup.dmp <span class="nv">tables</span><span class="o">=(</span>table1<span class="o">)</span> <span class="nv">query</span><span class="o">=</span><span class="s2">&quot; where filed1 like &#39;%A&#39;&quot;</span>  
+</code></pre></div>
+<p>第三步将备份是文件传输到到备份服务器 </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">rsync -zva --progress db_backup.dmp B服务器用户名@B服务服务器IP:B服务器的备份路径/db_backup.dmp
+</code></pre></div>
+<p>第四步将数据导入到数据库 </p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">    imp system/oracle@xe <span class="nv">file</span><span class="o">=</span>daochu.dmp <span class="nv">full</span><span class="o">=</span>y <span class="nv">ignore</span><span class="o">=</span>y  
+</code></pre></div>
+<p>第五步就是写好shell脚本和配Linux的定时任务（脚本就是第一到第三步的内容），使用Linux的crontab来配置定时任务（具体的配置就不详细介绍了），使其能够每天定时备份数据，并把文件备份到另外一台服务器上
+第六步是将数据导入到备份数据库服务器的Oracle上，这个步骤暂时不使用定时任务，在需要的时候可以手动导入数据库的数据，而需要注意的是在导入之前，你必须确保你数据库的用户是必须存在的，不然导入的时候会报错，创建数据库的用户如下：</p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">create</span> <span class="k">user</span> <span class="err">用户名</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="err">密码</span><span class="p">;</span>  
+    <span class="k">GRANT</span> <span class="k">CREATE</span> <span class="k">USER</span><span class="p">,</span><span class="k">DROP</span> <span class="k">USER</span><span class="p">,</span><span class="k">ALTER</span> <span class="k">USER</span> <span class="p">,</span><span class="k">CREATE</span> <span class="k">ANY</span> <span class="k">VIEW</span> <span class="p">,</span>  
+       <span class="k">DROP</span> <span class="k">ANY</span> <span class="k">VIEW</span><span class="p">,</span><span class="n">EXP_FULL_DATABASE</span><span class="p">,</span><span class="n">IMP_FULL_DATABASE</span><span class="p">,</span>  
+          <span class="n">DBA</span><span class="p">,</span><span class="k">CONNECT</span><span class="p">,</span><span class="n">RESOURCE</span><span class="p">,</span><span class="k">CREATE</span> <span class="k">SESSION</span> <span class="k">TO</span> <span class="err">用户名字</span><span class="p">;</span>  
+</code></pre></div>
+
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2011/08/14/shenfenzheng.html" title="身份证号码验证位的计算">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">身份证号码验证位的计算&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2011/12/24/apachetomcat.html" title="Apache与Tomcat搭建集群">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Apache与Tomcat搭建集群</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
+                
+            
+        </div>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+     
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row footer-top">
+      <h4 class="text-center">
+          <img alt="丁小样同学" width="57px" height="57px" src="/images/300_300.jpg" style="border-radius: 12px; background-clip: padding-box;" > &nbsp;<a target="_blank" href="http://weibo.com/craneding/">@丁小样同学出品</a>
+        </h4>      
+    </div>
+    <hr>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15053892号-1</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

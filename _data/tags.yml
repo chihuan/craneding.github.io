@@ -69,3 +69,11 @@
 - slug: oracle
   name: Oracle
   class: label label-info
+
+- slug: apache
+  name: Apache
+  class: label label-success
+
+- slug: tomcat
+  name: Tomcat
+  class: label label-danger
