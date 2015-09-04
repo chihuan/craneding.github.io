@@ -122,6 +122,16 @@
     </url>
     
     <url>
+        <loc>http://blog.dinghz.com/2011/08/14/shenfenzheng.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.dinghz.com/2010/07/13/js.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://blog.dinghz.com/2010/04/19/canvasdemo.html</loc>
         <priority>0.8</priority>
     </url>

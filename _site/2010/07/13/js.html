@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>javascript 判断浏览器类型及版本 | 丁小样同学博客</title>
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
+    
+    
+    <meta name="keywords" content="java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/144_144.png" /> 
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/144_144.png" /> 
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+<div id="wx_share_icon" style="display: none;">
+    <img alt="丁小样同学" src="/images/300_300.jpg" width="300px" height="300px" />
+</div>
+<header role="banner" id="top" class="navbar navbar-fixed-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学博客</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class=" /2010/07/13/js.html">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class=" /2010/07/13/js.html">
+                    <a href="/navigations/archives.html">笔迹</a>
+                </li>
+                
+                
+                
+                <li class=" /2010/07/13/js.html">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class=" /2010/07/13/js.html">
+                    <a href="/navigations/contact.html">关于</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+
+
+    
+    
+        
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">javascript 判断浏览器类型及版本 <small><span class="label label-info">2010-07-13</span></small></h2>
+
+        <p class="fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-info'>Javascript</code></p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近在网上看到一段js判断浏览器类型及版本的代码，写的不错，挺简练的，现在在这里做个存档 </p>
+
+<blockquote>
+<p><a href="http://www.cnblogs.com/leadzen/archive/2008/09/06/1285764.html">代码原文</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">Sys</span> <span class="o">=</span> <span class="p">{};</span>  
+    <span class="kd">var</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>  
+    <span class="kd">var</span> <span class="nx">s</span><span class="p">;</span>  
+    <span class="p">(</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/msie ([\d.]+)/</span><span class="p">))</span> <span class="o">?</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">ie</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span>  
+    <span class="p">(</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/firefox\/([\d.]+)/</span><span class="p">))</span> <span class="o">?</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">firefox</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span>  
+    <span class="p">(</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/chrome\/([\d.]+)/</span><span class="p">))</span> <span class="o">?</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">chrome</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span>  
+    <span class="p">(</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/opera.([\d.]+)/</span><span class="p">))</span> <span class="o">?</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">opera</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span>  
+    <span class="p">(</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/version\/([\d.]+).*safari/</span><span class="p">))</span> <span class="o">?</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">safari</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>  
+
+    <span class="c1">//以下进行测试  </span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Sys</span><span class="p">.</span><span class="nx">ie</span><span class="p">)</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;IE: &#39;</span> <span class="o">+</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">ie</span><span class="p">);</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Sys</span><span class="p">.</span><span class="nx">firefox</span><span class="p">)</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;Firefox: &#39;</span> <span class="o">+</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">firefox</span><span class="p">);</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Sys</span><span class="p">.</span><span class="nx">chrome</span><span class="p">)</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;Chrome: &#39;</span> <span class="o">+</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">chrome</span><span class="p">);</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Sys</span><span class="p">.</span><span class="nx">opera</span><span class="p">)</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;Opera: &#39;</span> <span class="o">+</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">opera</span><span class="p">);</span>  
+    <span class="k">if</span> <span class="p">(</span><span class="nx">Sys</span><span class="p">.</span><span class="nx">safari</span><span class="p">)</span> <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;Safari: &#39;</span> <span class="o">+</span> <span class="nx">Sys</span><span class="p">.</span><span class="nx">safari</span><span class="p">);</span>  
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+                <a href="/2010/04/19/canvasdemo.html" title="HTML5 Canvas 的初试">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">HTML5 Canvas 的初试&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2011/08/14/shenfenzheng.html" title="身份证号码验证位的计算">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;身份证号码验证位的计算</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
+                
+            
+        </div>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+     
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row footer-top">
+      <h4 class="text-center">
+          <img alt="丁小样同学" width="57px" height="57px" src="/images/300_300.jpg" style="border-radius: 12px; background-clip: padding-box;" > &nbsp;<a target="_blank" href="http://weibo.com/craneding/">@丁小样同学出品</a>
+        </h4>      
+    </div>
+    <hr>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15053892号-1</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
