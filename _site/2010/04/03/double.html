@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>浮点数运算的陷阱 | 丁小样同学博客</title>
+    <meta name="author" content="丁小样同学">
+    
+    <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
+    
+    
+    <meta name="keywords" content="java,linux,shell,mysql,spring,phonegap,redis,oracle,html5,css3">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!--<meta content="yes" name="apple-mobile-web-app-capable">-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /> 
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/114_114.png" /> 
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/144_144.png" /> 
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/144_144.png" /> 
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/default.css" type="text/css"/>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c604cca6874b9c92af854adbc6cf0dd";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+<div id="wx_share_icon" style="display: none;">
+    <img alt="丁小样同学" src="/images/300_300.jpg" width="300px" height="300px" />
+</div>
+<header role="banner" id="top" class="navbar navbar-fixed-top bs-docs-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">丁小样同学博客</a>
+        </div>
+        <nav id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                
+                <li class=" /2010/04/03/double.html">
+                    <a href="/index.html">首页</a>
+                </li>
+                
+                
+                
+                <li class=" /2010/04/03/double.html">
+                    <a href="/navigations/archives.html">笔迹</a>
+                </li>
+                
+                
+                
+                <li class=" /2010/04/03/double.html">
+                    <a href="/navigations/works.html">作品</a>
+                </li>
+                
+                
+                
+                <li class=" /2010/04/03/double.html">
+                    <a href="/navigations/contact.html">关于</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="bs-docs-header">
+    <div class="container">
+        <h1>blog.dinghz.com</h1>
+
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+
+
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+
+
+<div class="container-fluid bs-docs-container">
+    <div class="row">
+        <h2 class="page-header" id="download">浮点数运算的陷阱 <small><span class="label label-info">2010-04-03</span></small></h2>
+
+        <p class="fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-success'>Java</code></p>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮点数的运算不能说是精确的,因为某些数字不能准确表示为二进制(例如: 0.1),以下是一个用浮点数运算的例子,例子证明了我们应该慎用浮点数运算。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/** </span>
+<span class="cm"> * @author crane.ding </span>
+<span class="cm"> */</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>  
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>  
+        <span class="kd">final</span> <span class="kt">float</span> <span class="n">ff</span> <span class="o">=</span> <span class="mf">0.6f</span> <span class="o">+</span> <span class="mf">0.1f</span><span class="o">;</span>  
+        <span class="kd">final</span> <span class="kt">double</span> <span class="n">fd</span> <span class="o">=</span> <span class="mf">0.6f</span> <span class="o">+</span> <span class="mf">0.1d</span><span class="o">;</span>  
+        <span class="kd">final</span> <span class="kt">double</span> <span class="n">df</span> <span class="o">=</span> <span class="mf">0.6d</span> <span class="o">+</span> <span class="mf">0.1f</span><span class="o">;</span>  
+        <span class="kd">final</span> <span class="kt">double</span> <span class="n">dd</span> <span class="o">=</span> <span class="mf">0.6d</span> <span class="o">+</span> <span class="mf">0.1d</span><span class="o">;</span>  
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">ff</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+(</span><span class="n">ff</span> <span class="o">==</span> <span class="mf">0.7f</span><span class="o">));</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">fd</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+(</span><span class="n">fd</span> <span class="o">==</span> <span class="mf">0.7d</span><span class="o">));</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">df</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+(</span><span class="n">df</span> <span class="o">==</span> <span class="mf">0.7d</span><span class="o">));</span>  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dd</span> <span class="o">+</span> <span class="s">&quot; : &quot;</span> <span class="o">+(</span><span class="n">dd</span> <span class="o">==</span> <span class="mf">0.7d</span><span class="o">));</span>  
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nfloat&quot;</span><span class="o">);</span>  
+        <span class="k">for</span> <span class="o">(</span><span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span> <span class="o">+</span> <span class="mf">0.1f</span><span class="o">)</span>  
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">f</span><span class="o">);</span>  
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\ndouble&quot;</span><span class="o">);</span>  
+        <span class="k">for</span> <span class="o">(</span><span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">)</span>  
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>  
+    <span class="o">}</span>  
+
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">0.70000005 : false  
+0.7000000238418579 : false  
+0.7000000014901161 : false  
+0.7 : true  
+
+float  
+0.0  
+0.1  
+0.2  
+0.3  
+0.4  
+0.5  
+0.6  
+0.70000005  
+0.8000001  
+0.9000001  
+
+double  
+0.0  
+0.1  
+0.2  
+0.30000000000000004  
+0.4  
+0.5  
+0.6  
+0.7  
+0.7999999999999999  
+0.8999999999999999  
+0.9999999999999999
+</code></pre></div>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从以上的运行结果我们不难看出，浮点数的运算是有误差的，例如0.2加0.1就不等于0.3；对于金额的运行如果采用浮点数，那计算出来的金额就不一定是准确的；这也是许多程序开发人员经常接触，而未考虑到的一个小陷阱。</p>
+
+
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
+                
+            </div>
+            <div class="pull-left">
+                
+                <a href="/2010/04/19/canvasdemo.html" title="HTML5 Canvas 的初试">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;HTML5 Canvas 的初试</span>
+                    </button>
+                </a>
+                
+            </div>
+        </div>
+        
+        <div class="comment">
+            
+                
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
+                
+            
+        </div>
+    </div>
+
+    
+
+    
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+     
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="row footer-top">
+      <h4 class="text-center">
+          <img alt="丁小样同学" width="57px" height="57px" src="/images/300_300.jpg" style="border-radius: 12px; background-clip: padding-box;" > &nbsp;<a target="_blank" href="http://weibo.com/craneding/">@丁小样同学出品</a>
+        </h4>      
+    </div>
+    <hr>
+    <div class="row footer-bottom">
+      <ul class="list-inline text-center">
+        <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备15053892号-1</a>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
