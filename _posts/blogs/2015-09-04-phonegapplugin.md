@@ -6,13 +6,13 @@ tags:         [phonegap]
 description:  给大家推荐几款优秀的PhoneGap插件。
 ---
 
-### App版本(cordova-plugin-app-version)
+### 极光推送(jpush-phonegap-plugin)
 
 > [jpush-phonegap-plugin](https://github.com/jpush/jpush-phonegap-plugin)
 >
 > [极光推送官方文档](http://docs.jpush.cn/)
 
 
-### 极光推送(jpush-phonegap-plugin)
+### App版本(cordova-plugin-app-version)
 
 > [cordova-plugin-app-version](https://github.com/whiteoctober/cordova-plugin-app-version)

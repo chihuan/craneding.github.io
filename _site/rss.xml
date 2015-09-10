@@ -15,7 +15,7 @@
       <title>必备的PhoneGap插件</title>
       <description>
         <![CDATA[
-        <h3>App版本(cordova-plugin-app-version)</h3>
+        <h3>极光推送(jpush-phonegap-plugin)</h3>
 
 <blockquote>
 <p><a href="https://github.com/jpush/jpush-phonegap-plugin">jpush-phonegap-plugin</a></p>
@@ -23,7 +23,7 @@
 <p><a href="http://docs.jpush.cn/">极光推送官方文档</a></p>
 </blockquote>
 
-<h3>极光推送(jpush-phonegap-plugin)</h3>
+<h3>App版本(cordova-plugin-app-version)</h3>
 
 <blockquote>
 <p><a href="https://github.com/whiteoctober/cordova-plugin-app-version">cordova-plugin-app-version</a></p>
