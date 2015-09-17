@@ -12,6 +12,61 @@
 
     
     <item>
+      <title>OS X 不可或缺的套件管理器 Homebrew</title>
+      <description>
+        <![CDATA[
+        <h3>Homebrew官网</h3>
+
+<blockquote>
+<p><a href="http://brew.sh/">http://brew.sh/</a></p>
+</blockquote>
+
+<h3>安装Homebrew</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ruby -e <span class="s2">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span>
+</code></pre></div>
+<p>打开终端窗口, 粘贴以上脚本。</p>
+
+<h3>What Does Homebrew Do?</h3>
+
+<h4>安装</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew install wget
+</code></pre></div>
+<h4>搜索</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew search mysql
+</code></pre></div>
+<h4>查询</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew info mysql
+</code></pre></div>
+<p>主要看具体的信息，比如目前的版本，依赖，安装后注意事项等</p>
+
+<h4>更新</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew update
+</code></pre></div>
+<p>这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——</p>
+
+<h4>检查过时（是否有新版本）</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew outdated
+</code></pre></div>
+<p>这回列出所有安装的软件里可以升级的那些</p>
+
+<h4>升级</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew upgrade
+</code></pre></div>
+<p>升级所有可以升级的软件们</p>
+
+<h4>清理</h4>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">brew cleanup
+</code></pre></div>
+<p>清理不需要的版本极其安装包缓存</p>
+
+        ]]>
+      </description>
+      <pubDate>2015-09-17T00:00:00+08:00</pubDate>
+      <link>http://blog.dinghz.com/2015/09/17/homebrew.html</link>
+      <guid isPermaLink="false">http://blog.dinghz.com/2015/09/17/homebrew</guid>
+    </item>
+    
+    <item>
       <title>必备的PhoneGap插件</title>
       <description>
         <![CDATA[
@@ -576,20 +631,6 @@ http://www.xxx.com/abc/file3.zip
       <pubDate>2014-12-31T00:00:00+08:00</pubDate>
       <link>http://blog.dinghz.com/2014/12/31/shellmysql.html</link>
       <guid isPermaLink="false">http://blog.dinghz.com/2014/12/31/shellmysql</guid>
-    </item>
-    
-    <item>
-      <title>shell多行文字合并为一行</title>
-      <description>
-        <![CDATA[
-        <h3>使用awk来进行处理换行问题</h3>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">awk <span class="s1">&#39;{printf (/#/&amp;&amp;NR&gt;1)?&quot;\n&quot;$0:$0}&#39;</span>
-</code></pre></div>
-        ]]>
-      </description>
-      <pubDate>2014-12-31T00:00:00+08:00</pubDate>
-      <link>http://blog.dinghz.com/2014/12/31/shell.html</link>
-      <guid isPermaLink="false">http://blog.dinghz.com/2014/12/31/shell</guid>
     </item>
     
   </channel>

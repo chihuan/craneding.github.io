@@ -4,13 +4,64 @@
    <title>丁小样同学博客</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-09-10T18:04:22+08:00</updated>
+   <updated>2015-09-17T14:54:00+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
      <email>crane.ding@163.com</email>
    </author>
 
+   
+   <entry>
+     <title>OS X 不可或缺的套件管理器 Homebrew</title>
+     <link href="http://blog.dinghz.com/2015/09/17/homebrew.html"/>
+     <updated>2015-09-17T00:00:00+08:00</updated>
+     <id>http://blog.dinghz.com/2015/09/17/homebrew</id>
+     <content type="html">&lt;h3&gt;Homebrew官网&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://brew.sh/&quot;&gt;http://brew.sh/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;安装Homebrew&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;ruby -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;打开终端窗口, 粘贴以上脚本。&lt;/p&gt;
+
+&lt;h3&gt;What Does Homebrew Do?&lt;/h3&gt;
+
+&lt;h4&gt;安装&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew install wget
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;搜索&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew search mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;查询&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew info mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;主要看具体的信息，比如目前的版本，依赖，安装后注意事项等&lt;/p&gt;
+
+&lt;h4&gt;更新&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——&lt;/p&gt;
+
+&lt;h4&gt;检查过时（是否有新版本）&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew outdated
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这回列出所有安装的软件里可以升级的那些&lt;/p&gt;
+
+&lt;h4&gt;升级&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;升级所有可以升级的软件们&lt;/p&gt;
+
+&lt;h4&gt;清理&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;brew cleanup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;清理不需要的版本极其安装包缓存&lt;/p&gt;
+</content>
+   </entry>
    
    <entry>
      <title>必备的PhoneGap插件</title>
@@ -540,16 +591,6 @@ http://www.xxx.com/abc/file3.zip
       &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tableA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tableB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;   
       &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
     &lt;span class=&quot;n&quot;&gt;EOF&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-   </entry>
-   
-   <entry>
-     <title>shell多行文字合并为一行</title>
-     <link href="http://blog.dinghz.com/2014/12/31/shell.html"/>
-     <updated>2014-12-31T00:00:00+08:00</updated>
-     <id>http://blog.dinghz.com/2014/12/31/shell</id>
-     <content type="html">&lt;h3&gt;使用awk来进行处理换行问题&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;awk &lt;span class=&quot;s1&quot;&gt;&amp;#39;{printf (/#/&amp;amp;&amp;amp;NR&amp;gt;1)?&amp;quot;\n&amp;quot;$0:$0}&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
    </entry>
    
