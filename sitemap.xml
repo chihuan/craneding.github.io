@@ -2,20 +2,29 @@
 layout: blank
 ---
 <?xml version="1.0" encoding="utf-8" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/">
     <url>
         <loc>{{ site.url }}/</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>{{ site.time | date:'%Y-%m-%d' }}</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     {% for link in site.nav %}
     <url>
         <loc>{{ site.url }}{{ link.url }}</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>{{ site.time | date:'%Y-%m-%d' }}</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
     {% endfor %}
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url }}</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>{{ post.date | date:'%Y-%m-%d' }}</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     {% endfor %}

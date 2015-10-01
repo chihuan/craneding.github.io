@@ -1,158 +1,251 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/">
     <url>
         <loc>http://blog.dinghz.com/</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-10-01</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/index.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-10-01</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/navigations/archives.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-10-01</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/navigations/works.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-10-01</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/navigations/contact.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-10-01</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.6</priority>
     </url>
     
     
     <url>
         <loc>http://blog.dinghz.com/2015/09/17/homebrew.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-09-17</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/09/04/phonegapplugin.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-09-04</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/09/03/weixinicon.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-09-03</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/09/03/phonegap.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-09-03</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/08/30/easybean.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-08-30</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/08/29/jquerymobile.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-08-29</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/08/29/androiddevtools.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-08-29</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/07/09/appdevelper.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-07-09</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2015/07/05/linuxwget.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-07-05</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/12/31/shellmysql.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-12-31</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/12/31/shell.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-12-31</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/12/31/mysqldump.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-12-31</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/11/19/nginxupdate.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-11-19</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/11/15/installjira.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-11-15</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/11/15/confluence.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-11-15</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2014/04/08/memcached.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2014-04-08</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2013/04/02/installsvn.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2013-04-02</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2013/04/02/installoracle.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2013-04-02</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2012/01/02/nginx.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2012-01-02</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2011/12/24/apachetomcat.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2011-12-24</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2011/12/11/oraclessh.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2011-12-11</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2011/08/14/shenfenzheng.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2011-08-14</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2010/07/18/jhatjmap.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2010-07-18</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2010/07/13/js.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2010-07-13</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2010/04/19/canvasdemo.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2010-04-19</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.dinghz.com/2010/04/03/double.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2010-04-03</lastmod>
+        <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     
