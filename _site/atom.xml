@@ -4,7 +4,7 @@
    <title>丁小样同学博客</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-10-05T10:46:20+08:00</updated>
+   <updated>2015-10-05T10:53:28+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
@@ -51,21 +51,21 @@ $ make
 &lt;p&gt;生成HTML报告:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;报告样例:&lt;a href=&quot;http://goaccess.io/goaccess_html_report.html?1410179475&quot;&gt;http://goaccess.io/goaccess&lt;em&gt;html&lt;/em&gt;report.html?1410179475&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;报告样例：&lt;a href=&quot;http://goaccess.io/goaccess_html_report.html?1410179475&quot;&gt;html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -a &amp;gt; report.html&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;生成JSON报告:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;报告样例:&lt;a href=&quot;http://goaccess.io/goaccess_json_report.json?201509070000&quot;&gt;http://goaccess.io/goaccess&lt;em&gt;json&lt;/em&gt;report.json?201509070000&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;报告样例：&lt;a href=&quot;http://goaccess.io/goaccess_json_report.json?201509070000&quot;&gt;json&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -a -d -o json &amp;gt; report.json&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;生成CSV报告:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;报告样例:&lt;a href=&quot;http://goaccess.io/goaccess_csv_report.csv?201509070000&quot;&gt;http://goaccess.io/goaccess&lt;em&gt;csv&lt;/em&gt;report.csv?201509070000&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;报告样例：&lt;a href=&quot;http://goaccess.io/goaccess_csv_report.csv?201509070000&quot;&gt;csv&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -o csv &amp;gt; report.csv&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
