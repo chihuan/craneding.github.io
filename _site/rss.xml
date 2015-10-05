@@ -12,6 +12,69 @@
 
     
     <item>
+      <title>网站日志实时分析工具 GoAccess</title>
+      <description>
+        <![CDATA[
+        <h3>GoAccess官网</h3>
+
+<blockquote>
+<p><a href="http://goaccess.io/">http://goaccess.io/</a></p>
+</blockquote>
+
+<h3>安装GoAccess</h3>
+
+<blockquote>
+<p>详情请看
+<a href="http://goaccess.io/download">http://goaccess.io/download</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ wget http://tar.goaccess.io/goaccess-0.9.4.tar.gz
+$ tar -xzvf goaccess-0.9.4.tar.gz
+$ cd goaccess-0.9.4/
+$ ./configure --enable-geoip --enable-utf8
+$ make
+# make install
+</code></pre></div>
+<h3>GoAccess介绍</h3>
+
+<p>GoAccess 是一款开源的网站日志实时分析工具。GoAccess 的工作方式很容易理解，就是读取和解析 Apache/Nginx/Lighttpd 的访问日志文件 access log，然后以更友好的方式把统计信息显示出来。统计的内容包括：访问概况、动态页面请求、静态页面请求（如图片、样式表、脚本等）、访客排名，访客使用的操作系统，访客使用的浏览器，来路域名，404 错误，搜索爬虫，搜索关键词等等。</p>
+
+<h3>用法</h3>
+
+<p>最简单和最快的用法是:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log</span>
+</code></pre></div>
+<p>启用主机的用户代理列表:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -a</span>
+</code></pre></div>
+<p>生成HTML报告:</p>
+
+<blockquote>
+<p>报告样例:<a href="http://goaccess.io/goaccess_html_report.html?1410179475">http://goaccess.io/goaccess<em>html</em>report.html?1410179475</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -a &gt; report.html</span>
+</code></pre></div>
+<p>生成JSON报告:</p>
+
+<blockquote>
+<p>报告样例:<a href="http://goaccess.io/goaccess_json_report.json?201509070000">http://goaccess.io/goaccess<em>json</em>report.json?201509070000</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -a -d -o json &gt; report.json</span>
+</code></pre></div>
+<p>生成CSV报告:</p>
+
+<blockquote>
+<p>报告样例:<a href="http://goaccess.io/goaccess_csv_report.csv?201509070000">http://goaccess.io/goaccess<em>csv</em>report.csv?201509070000</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -o csv &gt; report.csv</span>
+</code></pre></div>
+        ]]>
+      </description>
+      <pubDate>2015-10-05T00:00:00+08:00</pubDate>
+      <link>http://blog.dinghz.com/2015/10/05/goaccess.html</link>
+      <guid isPermaLink="false">http://blog.dinghz.com/2015/10/05/goaccess</guid>
+    </item>
+    
+    <item>
       <title>OS X 不可或缺的套件管理器 Homebrew</title>
       <description>
         <![CDATA[
@@ -614,23 +677,6 @@ http://www.xxx.com/abc/file3.zip
       <pubDate>2015-07-05T00:00:00+08:00</pubDate>
       <link>http://blog.dinghz.com/2015/07/05/linuxwget.html</link>
       <guid isPermaLink="false">http://blog.dinghz.com/2015/07/05/linuxwget</guid>
-    </item>
-    
-    <item>
-      <title>shell执行mysql的SQL语句</title>
-      <description>
-        <![CDATA[
-        <h3>在脚本中执行mysql的SQL语句</h3>
-<div class="highlight"><pre><code class="language-mysql" data-lang="mysql">    <span class="n">mysql</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>    
-      <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">tableA</span> <span class="n">a</span><span class="p">,</span> <span class="n">tableB</span> <span class="n">b</span>   
-      <span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>  
-    <span class="n">EOF</span> 
-</code></pre></div>
-        ]]>
-      </description>
-      <pubDate>2014-12-31T00:00:00+08:00</pubDate>
-      <link>http://blog.dinghz.com/2014/12/31/shellmysql.html</link>
-      <guid isPermaLink="false">http://blog.dinghz.com/2014/12/31/shellmysql</guid>
     </item>
     
   </channel>

@@ -4,13 +4,72 @@
    <title>丁小样同学博客</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-10-01T17:47:43+08:00</updated>
+   <updated>2015-10-05T10:46:20+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
      <email>crane.ding@163.com</email>
    </author>
 
+   
+   <entry>
+     <title>网站日志实时分析工具 GoAccess</title>
+     <link href="http://blog.dinghz.com/2015/10/05/goaccess.html"/>
+     <updated>2015-10-05T00:00:00+08:00</updated>
+     <id>http://blog.dinghz.com/2015/10/05/goaccess</id>
+     <content type="html">&lt;h3&gt;GoAccess官网&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://goaccess.io/&quot;&gt;http://goaccess.io/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;安装GoAccess&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;详情请看
+&lt;a href=&quot;http://goaccess.io/download&quot;&gt;http://goaccess.io/download&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ wget http://tar.goaccess.io/goaccess-0.9.4.tar.gz
+$ tar -xzvf goaccess-0.9.4.tar.gz
+$ cd goaccess-0.9.4/
+$ ./configure --enable-geoip --enable-utf8
+$ make
+# make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;GoAccess介绍&lt;/h3&gt;
+
+&lt;p&gt;GoAccess 是一款开源的网站日志实时分析工具。GoAccess 的工作方式很容易理解，就是读取和解析 Apache/Nginx/Lighttpd 的访问日志文件 access log，然后以更友好的方式把统计信息显示出来。统计的内容包括：访问概况、动态页面请求、静态页面请求（如图片、样式表、脚本等）、访客排名，访客使用的操作系统，访客使用的浏览器，来路域名，404 错误，搜索爬虫，搜索关键词等等。&lt;/p&gt;
+
+&lt;h3&gt;用法&lt;/h3&gt;
+
+&lt;p&gt;最简单和最快的用法是:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;启用主机的用户代理列表:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;生成HTML报告:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;报告样例:&lt;a href=&quot;http://goaccess.io/goaccess_html_report.html?1410179475&quot;&gt;http://goaccess.io/goaccess&lt;em&gt;html&lt;/em&gt;report.html?1410179475&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -a &amp;gt; report.html&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;生成JSON报告:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;报告样例:&lt;a href=&quot;http://goaccess.io/goaccess_json_report.json?201509070000&quot;&gt;http://goaccess.io/goaccess&lt;em&gt;json&lt;/em&gt;report.json?201509070000&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -a -d -o json &amp;gt; report.json&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;生成CSV报告:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;报告样例:&lt;a href=&quot;http://goaccess.io/goaccess_csv_report.csv?201509070000&quot;&gt;http://goaccess.io/goaccess&lt;em&gt;csv&lt;/em&gt;report.csv?201509070000&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# goaccess -f access.log -o csv &amp;gt; report.csv&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+   </entry>
    
    <entry>
      <title>OS X 不可或缺的套件管理器 Homebrew</title>
@@ -578,19 +637,6 @@ http://www.xxx.com/abc/file3.zip
 &lt;span class=&quot;c&quot;&gt;# -np, --no-parent（不追溯至父级）&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# -e robots=off, --忽略robots.txt协议&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# -U, 模拟User-Agent&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-   </entry>
-   
-   <entry>
-     <title>shell执行mysql的SQL语句</title>
-     <link href="http://blog.dinghz.com/2014/12/31/shellmysql.html"/>
-     <updated>2014-12-31T00:00:00+08:00</updated>
-     <id>http://blog.dinghz.com/2014/12/31/shellmysql</id>
-     <content type="html">&lt;h3&gt;在脚本中执行mysql的SQL语句&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-mysql&quot; data-lang=&quot;mysql&quot;&gt;    &lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EOF&lt;/span&gt;    
-      &lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tableA&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tableB&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;   
-      &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;EOF&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
    </entry>
    

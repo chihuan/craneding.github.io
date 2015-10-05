@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>丁小样同学博客</title>
+    <title>网站日志实时分析工具 GoAccess | 丁小样同学博客</title>
     <meta name="author" content="丁小样同学">
     
     <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
@@ -59,25 +59,25 @@
                 
                 
                 
-                <li class=" /page4/index.html">
+                <li class=" /2015/10/05/goaccess.html">
                     <a href="/index.html">首页</a>
                 </li>
                 
                 
                 
-                <li class=" /page4/index.html">
+                <li class=" /2015/10/05/goaccess.html">
                     <a href="/navigations/archives.html">笔迹</a>
                 </li>
                 
                 
                 
-                <li class=" /page4/index.html">
+                <li class=" /2015/10/05/goaccess.html">
                     <a href="/navigations/works.html">作品</a>
                 </li>
                 
                 
                 
-                <li class=" /page4/index.html">
+                <li class=" /2015/10/05/goaccess.html">
                     <a href="/navigations/contact.html">关于</a>
                 </li>
                 
@@ -91,295 +91,224 @@
     <div class="container">
         <h1>blog.dinghz.com</h1>
 
-        <p>丁小样同学欢迎您!</p>
+        <p>没错，这满满都是技术类的文章。把自己看到的、学到的都记录下来，也是自己一本不错的备忘录!</p>
     </div>
 </div>
 
 
-<div class="container-fluid bs-docs-container index-content">
+<link rel="stylesheet" href="/css/pygments.css" type="text/css"/>
+
+
+
+    
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        
+        
+            
+            
+        
+    
+
+
+<div class="container-fluid bs-docs-container">
     <div class="row">
-        <div style='height:30px;'>&nbsp;</div>
-        
+        <h2 class="page-header" id="download">网站日志实时分析工具 GoAccess <small><span class="label label-info">2015-10-05</span></small></h2>
 
+        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-warning'>Linux</code>&nbsp;&nbsp;<code class='label label-info'>Nginx</code></p>
 
-    
-    
-        
-        
-            
-        
-            
+        <h3>GoAccess官网</h3>
+
+<blockquote>
+<p><a href="http://goaccess.io/">http://goaccess.io/</a></p>
+</blockquote>
+
+<h3>安装GoAccess</h3>
+
+<blockquote>
+<p>详情请看
+<a href="http://goaccess.io/download">http://goaccess.io/download</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ wget http://tar.goaccess.io/goaccess-0.9.4.tar.gz
+$ tar -xzvf goaccess-0.9.4.tar.gz
+$ cd goaccess-0.9.4/
+$ ./configure --enable-geoip --enable-utf8
+$ make
+# make install
+</code></pre></div>
+<h3>GoAccess介绍</h3>
+
+<p>GoAccess 是一款开源的网站日志实时分析工具。GoAccess 的工作方式很容易理解，就是读取和解析 Apache/Nginx/Lighttpd 的访问日志文件 access log，然后以更友好的方式把统计信息显示出来。统计的内容包括：访问概况、动态页面请求、静态页面请求（如图片、样式表、脚本等）、访客排名，访客使用的操作系统，访客使用的浏览器，来路域名，404 错误，搜索爬虫，搜索关键词等等。</p>
+
+<h3>用法</h3>
+
+<p>最简单和最快的用法是:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log</span>
+</code></pre></div>
+<p>启用主机的用户代理列表:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -a</span>
+</code></pre></div>
+<p>生成HTML报告:</p>
+
+<blockquote>
+<p>报告样例:<a href="http://goaccess.io/goaccess_html_report.html?1410179475">http://goaccess.io/goaccess<em>html</em>report.html?1410179475</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -a &gt; report.html</span>
+</code></pre></div>
+<p>生成JSON报告:</p>
+
+<blockquote>
+<p>报告样例:<a href="http://goaccess.io/goaccess_json_report.json?201509070000">http://goaccess.io/goaccess<em>json</em>report.json?201509070000</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -a -d -o json &gt; report.json</span>
+</code></pre></div>
+<p>生成CSV报告:</p>
+
+<blockquote>
+<p>报告样例:<a href="http://goaccess.io/goaccess_csv_report.csv?201509070000">http://goaccess.io/goaccess<em>csv</em>report.csv?201509070000</a></p>
+</blockquote>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># goaccess -f access.log -o csv &gt; report.csv</span>
+</code></pre></div>
+
+        <div style="padding: 5px; margin: 10px 0px; height: 35px;">
+            <div class="pull-right">
                 
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-
-
-        <div class="jumbotron">
-            <h2>javascript 判断浏览器类型及版本<small> <span class="label label-info">2010-07-13</span></small></h2>
-	    <p class="hidden-xs fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ：&nbsp;<code class='label label-info'>Javascript</code></p>
-            <p class="description">一段简练的判断浏览器类型和版本的js代码。</p>
-            <p>
-                <a href="/2010/07/13/js.html" class="btn btn-primary" role="button">阅读</a>
-            </p>
+                <a href="/2015/09/17/homebrew.html" title="OS X 不可或缺的套件管理器 Homebrew">
+                    <button type="button" class="btn btn-primary">
+                        <span class="paging">OS X 不可或缺的套件管理器 Homebrew&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                    </button>
+                </a>
+                
+            </div>
+            <div class="pull-left">
+                
+            </div>
         </div>
         
-
-
-    
-    
-        
-        
+        <div class="comment">
             
                 
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-        
-        
-            
-        
-            
+                <div class="comment-cnt">
+                    <div class="ds-thread"></div>
+                </div>
                 
             
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-
-
-        <div class="jumbotron">
-            <h2>HTML5 Canvas 的初试<small> <span class="label label-info">2010-04-19</span></small></h2>
-	    <p class="hidden-xs fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ：&nbsp;<code class='label label-warning'>Web</code>&nbsp;&nbsp;<code class='label label-info'>Javascript</code></p>
-            <p class="description">学习HTML5 Canvas，利用其画板来实现类似ps软件中的某些模块功能。</p>
-            <p>
-                <a href="/2010/04/19/canvasdemo.html" class="btn btn-primary" role="button">阅读</a>
-            </p>
         </div>
-        
-
-
-    
-    
-        
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-        
-        
-            
-            
-        
-    
-
-
-        <div class="jumbotron">
-            <h2>浮点数运算的陷阱<small> <span class="label label-info">2010-04-03</span></small></h2>
-	    <p class="hidden-xs fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ：&nbsp;<code class='label label-success'>Java</code></p>
-            <p class="description">浮点数运算真的精确吗？</p>
-            <p>
-                <a href="/2010/04/03/double.html" class="btn btn-primary" role="button">阅读</a>
-            </p>
-        </div>
-        
     </div>
+
+    
+
+    
+    <script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+     
 </div>
-
-
-<nav style="margin: 0 auto; text-align: center;">
-    <ul class="pagination">
-        
-        
-        <li><a href="/">1</a></li>
-        
-        
-        
-        <li><a href="/page2/">2</a></li>
-        
-        
-        
-        <li><a href="/page3/">3</a></li>
-        
-        
-        
-        <li class="active"><a href="javascript:void(0);">4 <span class="sr-only">(current)</span></a></li>
-        
-        
-    </ul>
-</nav>
-
-
 
 
 <footer class="footer">
