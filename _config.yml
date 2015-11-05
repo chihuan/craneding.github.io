@@ -1,4 +1,5 @@
 
+gems: [jekyll-paginate, jekyll-gist]
 permalink: /:year/:month/:day/:title.html
 highlighter: pygments
 paginate: 8

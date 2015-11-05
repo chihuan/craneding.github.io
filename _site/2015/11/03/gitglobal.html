@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>在RedHat 5上安装Oracle | 丁小样同学博客</title>
+    <title>git之https或http方式设置记住用户名和密码的方法 | 丁小样同学博客</title>
     <meta name="author" content="丁小样同学">
     
     <meta name="description" content="丁小样同学博客，是记录博主学习和成长的一个技术博客。关注于web开发、Java和linux等的技术研究！">
@@ -59,25 +59,25 @@
                 
                 
                 
-                <li class=" /2013/04/02/installoracle.html">
+                <li class=" /2015/11/03/gitglobal.html">
                     <a href="/index.html">首页</a>
                 </li>
                 
                 
                 
-                <li class=" /2013/04/02/installoracle.html">
+                <li class=" /2015/11/03/gitglobal.html">
                     <a href="/navigations/archives.html">笔迹</a>
                 </li>
                 
                 
                 
-                <li class=" /2013/04/02/installoracle.html">
+                <li class=" /2015/11/03/gitglobal.html">
                     <a href="/navigations/works.html">作品</a>
                 </li>
                 
                 
                 
-                <li class=" /2013/04/02/installoracle.html">
+                <li class=" /2015/11/03/gitglobal.html">
                     <a href="/navigations/contact.html">关于</a>
                 </li>
                 
@@ -103,32 +103,32 @@
 
 <div class="container-fluid bs-docs-container">
     <div class="row">
-        <h2 class="page-header" id="download">在RedHat 5上安装Oracle <small><span class="label label-info">2013-04-02</span></small></h2>
+        <h2 class="page-header" id="download">git之https或http方式设置记住用户名和密码的方法 <small><span class="label label-info">2015-11-03</span></small></h2>
 
-        <p class="fa"><i class="fa-tags glyphicon glyphicon-tags"></i> ： &nbsp;<code class='label label-info'>Oracle</code>&nbsp;&nbsp;<code class='label label-warning'>Linux</code></p>
+        <p class="fa"><i class="fa-tag glyphicon glyphicon-tags"></i> ： &nbsp;<code>git</code></p>
 
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近自己动手安装了Oracle，看了网上很多的教程，很都是说的不清不楚的，有的甚至有点误导，让你感觉是超级的麻烦。其实也没那么麻烦，在网上也找到了一篇写的不错的教程，地址：<a href="http://www.cnblogs.com/edwardcmh/archive/2012/11/30/2796559.html">http://www.cnblogs.com/edwardcmh/archive/2012/11/30/2796559.html</a>，不过博客中的3-6这四个步骤我是没有做的，就直接跳过到第七个步骤开始了。</p>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装完了Oracle，测试通过了，不过Oracle是没有设置开机启动的，也就是说你重启了电脑了之后，就得自己手动的启动数据库，这也是比较繁琐的操作，这也找到了一个很好的教程，地址：<a href="http://www.cnblogs.com/edwardcmh/archive/2012/05/11/2495671.html">http://www.cnblogs.com/edwardcmh/archive/2012/05/11/2495671.html</a>或<a href="http://www.oracle-base.com/articles/linux/automating-database-startup-and-shutdown-on-linux.php">http://www.oracle-base.com/articles/linux/automating-database-startup-and-shutdown-on-linux.php</a>按照这篇文章，基本就搞定了Oracle的安装和自动启动。</p>
-
+        <h3>设置记住密码（默认15分钟）</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">   git config --global credential.helper cache
+</code></pre></div>
+<h3>设置记住密码（时间自定义）</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">   <span class="c"># 一小时有效期</span>
+   git config credential.helper <span class="s1">&#39;cache --timeout=3600&#39;</span>
+</code></pre></div>
+<h3>设置记住密码（长期有效）</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">   git config --global credential.helper store
+</code></pre></div>
 
         <div style="padding: 5px; margin: 10px 0px; height: 35px;">
             <div class="pull-right">
                 
-                <a href="/2012/01/02/nginx.html" title="Nginx初步实践">
+                <a href="/2015/10/05/goaccess.html" title="网站日志实时分析工具 GoAccess">
                     <button type="button" class="btn btn-primary">
-                        <span class="paging">Nginx初步实践&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
+                        <span class="paging">网站日志实时分析工具 GoAccess&nbsp;<i class="glyphicon glyphicon-menu-right"></i></span>
                     </button>
                 </a>
                 
             </div>
             <div class="pull-left">
-                
-                <a href="/2013/04/02/installsvn.html" title="在Linux系统安装SVN服务器">
-                    <button type="button" class="btn btn-primary">
-                        <span class="paging"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;在Linux系统安装SVN服务器</span>
-                    </button>
-                </a>
                 
             </div>
         </div>

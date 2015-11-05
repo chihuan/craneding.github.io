@@ -4,13 +4,30 @@
    <title>丁小样同学博客</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-10-05T10:53:28+08:00</updated>
+   <updated>2015-11-05T12:50:11+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
      <email>crane.ding@163.com</email>
    </author>
 
+   
+   <entry>
+     <title>git之https或http方式设置记住用户名和密码的方法</title>
+     <link href="http://blog.dinghz.com/2015/11/03/gitglobal.html"/>
+     <updated>2015-11-03T00:00:00+08:00</updated>
+     <id>http://blog.dinghz.com/2015/11/03/gitglobal</id>
+     <content type="html">&lt;h3&gt;设置记住密码（默认15分钟）&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;   git config --global credential.helper cache
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;设置记住密码（时间自定义）&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;   &lt;span class=&quot;c&quot;&gt;# 一小时有效期&lt;/span&gt;
+   git config credential.helper &lt;span class=&quot;s1&quot;&gt;&amp;#39;cache --timeout=3600&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;设置记住密码（长期有效）&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;   git config --global credential.helper store
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+   </entry>
    
    <entry>
      <title>网站日志实时分析工具 GoAccess</title>
@@ -592,52 +609,6 @@ $ make
 
 &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;发布到应用市场，对于IOS来说就相对简单，因为都是必须在早苹果的App Store进行发布。而Android就不一样，每个厂商都搞自己应用市场，五花八门，一个个发布那是相当的麻烦，你也可以使用&lt;a href=&quot;https://www.zhuamob.com/&quot;&gt;抓猫&lt;/a&gt;，来进行统一发布。&lt;/p&gt;
 </content>
-   </entry>
-   
-   <entry>
-     <title>Linux wget命令整站下载做网站镜像</title>
-     <link href="http://blog.dinghz.com/2015/07/05/linuxwget.html"/>
-     <updated>2015-07-05T00:00:00+08:00</updated>
-     <id>http://blog.dinghz.com/2015/07/05/linuxwget</id>
-     <content type="html">&lt;h3&gt;普通下载&lt;/h3&gt;
-
-&lt;p&gt;简单的下载文件，类似浏览器的文件下载功能。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget http://www.xxx.com/abc/file.zip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;断点续传&lt;/h3&gt;
-
-&lt;p&gt;文件大或网络慢不稳定的时候，文件还没下载完成，连接就断开又得重新下载。这个时候可以使用wget的断点续传，只需要在使用的时候加-c参数。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget -c http://www.xxx.com/abc/file.zip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;批量下载&lt;/h3&gt;
-
-&lt;p&gt;有多个文件需要下载，那么你只要给wget一个下载清单即可批量下载。编写一个文件，文件的每一行都是需要下载的url地址，然后使用-i参数。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# download.txt
-http://www.xxx.com/abc/file1.zip
-http://www.xxx.com/abc/file2.zip
-http://www.xxx.com/abc/file3.zip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget -i download.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;选择性下载&lt;/h3&gt;
-
-&lt;p&gt;可以指定下载某种类型文件，或者不下载某种文件。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget -m -reiect&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gif http://www.xxx.com/abc/
-
-&lt;span class=&quot;c&quot;&gt;# -reject=gif 表示忽略gif文件&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -accept=gif 表示下载gif文件&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;整站下载&lt;/h3&gt;
-
-&lt;p&gt;可以以递归的方式下载整站，并将下载的页面的链接转换为本地链接，同时可以忽略robots.txt协议和模拟User-Agent。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget -r -p -np -k -e &lt;span class=&quot;nv&quot;&gt;robots&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;off -U &lt;span class=&quot;s2&quot;&gt;&amp;quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0&amp;quot;&lt;/span&gt; http://www.xxx.com/abc/
-
-&lt;span class=&quot;c&quot;&gt;# -r,  --recursive（递归)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -k,  --convert-links（转换链接）&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -p,  --page-requisites（页面必需元素）&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -np, --no-parent（不追溯至父级）&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -e robots=off, --忽略robots.txt协议&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -U, 模拟User-Agent&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
    </entry>
    
 

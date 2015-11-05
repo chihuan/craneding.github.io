@@ -12,6 +12,27 @@
 
     
     <item>
+      <title>git之https或http方式设置记住用户名和密码的方法</title>
+      <description>
+        <![CDATA[
+        <h3>设置记住密码（默认15分钟）</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">   git config --global credential.helper cache
+</code></pre></div>
+<h3>设置记住密码（时间自定义）</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">   <span class="c"># 一小时有效期</span>
+   git config credential.helper <span class="s1">&#39;cache --timeout=3600&#39;</span>
+</code></pre></div>
+<h3>设置记住密码（长期有效）</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">   git config --global credential.helper store
+</code></pre></div>
+        ]]>
+      </description>
+      <pubDate>2015-11-03T00:00:00+08:00</pubDate>
+      <link>http://blog.dinghz.com/2015/11/03/gitglobal.html</link>
+      <guid isPermaLink="false">http://blog.dinghz.com/2015/11/03/gitglobal</guid>
+    </item>
+    
+    <item>
       <title>网站日志实时分析工具 GoAccess</title>
       <description>
         <![CDATA[
@@ -627,56 +648,6 @@ $ make
       <pubDate>2015-07-09T00:00:00+08:00</pubDate>
       <link>http://blog.dinghz.com/2015/07/09/appdevelper.html</link>
       <guid isPermaLink="false">http://blog.dinghz.com/2015/07/09/appdevelper</guid>
-    </item>
-    
-    <item>
-      <title>Linux wget命令整站下载做网站镜像</title>
-      <description>
-        <![CDATA[
-        <h3>普通下载</h3>
-
-<p>简单的下载文件，类似浏览器的文件下载功能。</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget http://www.xxx.com/abc/file.zip
-</code></pre></div>
-<h3>断点续传</h3>
-
-<p>文件大或网络慢不稳定的时候，文件还没下载完成，连接就断开又得重新下载。这个时候可以使用wget的断点续传，只需要在使用的时候加-c参数。</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -c http://www.xxx.com/abc/file.zip
-</code></pre></div>
-<h3>批量下载</h3>
-
-<p>有多个文件需要下载，那么你只要给wget一个下载清单即可批量下载。编写一个文件，文件的每一行都是需要下载的url地址，然后使用-i参数。</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"># download.txt
-http://www.xxx.com/abc/file1.zip
-http://www.xxx.com/abc/file2.zip
-http://www.xxx.com/abc/file3.zip
-</code></pre></div><div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -i download.txt
-</code></pre></div>
-<h3>选择性下载</h3>
-
-<p>可以指定下载某种类型文件，或者不下载某种文件。</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -m -reiect<span class="o">=</span>gif http://www.xxx.com/abc/
-
-<span class="c"># -reject=gif 表示忽略gif文件</span>
-<span class="c"># -accept=gif 表示下载gif文件</span>
-</code></pre></div>
-<h3>整站下载</h3>
-
-<p>可以以递归的方式下载整站，并将下载的页面的链接转换为本地链接，同时可以忽略robots.txt协议和模拟User-Agent。</p>
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>wget -r -p -np -k -e <span class="nv">robots</span><span class="o">=</span>off -U <span class="s2">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0&quot;</span> http://www.xxx.com/abc/
-
-<span class="c"># -r,  --recursive（递归)</span>
-<span class="c"># -k,  --convert-links（转换链接）</span>
-<span class="c"># -p,  --page-requisites（页面必需元素）</span>
-<span class="c"># -np, --no-parent（不追溯至父级）</span>
-<span class="c"># -e robots=off, --忽略robots.txt协议</span>
-<span class="c"># -U, 模拟User-Agent</span>
-</code></pre></div>
-        ]]>
-      </description>
-      <pubDate>2015-07-05T00:00:00+08:00</pubDate>
-      <link>http://blog.dinghz.com/2015/07/05/linuxwget.html</link>
-      <guid isPermaLink="false">http://blog.dinghz.com/2015/07/05/linuxwget</guid>
     </item>
     
   </channel>
