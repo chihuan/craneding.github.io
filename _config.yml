@@ -22,13 +22,13 @@ feed: /rss.xml
 #Nav config
 nav:
   - text: 首页
-    url: /index.html
+    url: /index
   - text: 笔迹
-    url: /navigations/archives.html
+    url: /navigations/archives
   - text: 作品
-    url: /navigations/works.html
+    url: /navigations/works
   - text: 关于
-    url: /navigations/contact.html
+    url: /navigations/contact
 
 # 评论
 #disqus:

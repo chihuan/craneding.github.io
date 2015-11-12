@@ -12,7 +12,7 @@ layout: blank
     </url>
     {% for link in site.nav %}
     <url>
-        <loc>{{ site.url }}{{ link.url }}</loc>
+        <loc>{{ site.url }}{{ link.url }}.html</loc>
         <mobile:mobile type="pc,mobile"/>
         <lastmod>{{ site.time | date:'%Y-%m-%d' }}</lastmod>
         <changefreq>daily</changefreq>

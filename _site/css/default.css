@@ -37,12 +37,11 @@ ol, ul {
     display: none;
 }
 .bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav > li > a {
-    color: white;
-    font-weight: bold;
+    color: #e5e9ee;
 }
 .bs-docs-nav .navbar-nav > .active > a, .bs-docs-nav .navbar-nav > .active > a:hover, .bs-docs-nav .navbar-nav > li > a:hover {
-    background-color: #127fb6;
-    color: white;
+    background-color: #2b2d34;
+    color: #e5e9ee;
 }
 .bs-docs-nav .navbar-toggle .icon-bar {
     background-color: white;

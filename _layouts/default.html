@@ -58,11 +58,14 @@
             <ul class="nav navbar-nav">
                 {% for link in site.nav %}
                 {% assign active = nil %}
-                {% if page.url == link.url%}
+                {% if page.url == link.url %}
+                {% assign active = 'active' %}
+                {% endif %}
+                {% if page.url == '/' and link.url == '/index' %}
                 {% assign active = 'active' %}
                 {% endif %}
                 <li class="{{ active }} {{ page.url }}">
-                    <a href="{{ link.url }}">{{ link.text }}</a>{{ indicator }}
+                    <a href="{{ link.url }}.html">{{ link.text }}</a>{{ indicator }}
                 </li>
                 {% endfor %}
             </ul>
