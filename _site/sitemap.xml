@@ -42,6 +42,14 @@
     
     
     <url>
+        <loc>http://blog.dinghz.com/2015/11/12/ios.html</loc>
+        <mobile:mobile type="pc,mobile"/>
+        <lastmod>2015-11-12</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>http://blog.dinghz.com/2015/11/03/gitglobal.html</loc>
         <mobile:mobile type="pc,mobile"/>
         <lastmod>2015-11-03</lastmod>

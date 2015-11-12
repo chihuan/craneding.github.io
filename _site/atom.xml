@@ -4,13 +4,29 @@
    <title>丁小样同学博客</title>
    <link href="http://blog.dinghz.com/rss.xml" rel="self" type="application/atom+xml"/>
    <link href="http://blog.dinghz.com" rel="alternate" type="text/html" />
-   <updated>2015-11-12T15:19:26+08:00</updated>
+   <updated>2015-11-12T15:26:50+08:00</updated>
    <id>http://blog.dinghz.com</id>
    <author>
      <name>丁小样同学</name>
      <email>crane.ding@163.com</email>
    </author>
 
+   
+   <entry>
+     <title>IOS进入DFU模式</title>
+     <link href="http://blog.dinghz.com/2015/11/12/ios.html"/>
+     <updated>2015-11-12T00:00:00+08:00</updated>
+     <id>http://blog.dinghz.com/2015/11/12/ios</id>
+     <content type="html">&lt;h3&gt;DFU模式&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;按住power开关3秒&lt;/li&gt;
+&lt;li&gt;接上在按power+home的同时屏幕变黑，默默的念10秒左右&lt;/li&gt;
+&lt;li&gt;放开power开关键，保持home键盘10多秒，长点也可以，屏幕是黑的，松开所有按键后屏幕全黑即进入dfu模式了。&lt;/li&gt;
+&lt;li&gt;这时候打开itunes会提示恢复手机即可。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+   </entry>
    
    <entry>
      <title>git之https或http方式设置记住用户名和密码的方法</title>
@@ -572,42 +588,6 @@ $ make
 &lt;blockquote&gt;
 &lt;p&gt;本文参考：&lt;a href=&quot;http://www.androiddevtools.cn/&quot;&gt;Android Dev Tools官网&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-</content>
-   </entry>
-   
-   <entry>
-     <title>手机app快速开发的经验</title>
-     <link href="http://blog.dinghz.com/2015/07/09/appdevelper.html"/>
-     <updated>2015-07-09T00:00:00+08:00</updated>
-     <id>http://blog.dinghz.com/2015/07/09/appdevelper</id>
-     <content type="html">&lt;h3&gt;app开发模式&lt;/h3&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;目前app平台有Android和IOS两大平台，对于一般的手机应用来说我们只需开发这两个平台的app（对于类似新浪微博、微信、QQ这样的高群体用户来说，那就必须支持所有的平台，包括：IOS，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry）。目前手机app的开发模式有两大模式，分别为原生开发和混搭Web开发。对于中小团队来说我建议使用混搭Web开发的模式，因为使用原生开发需要对每个平台分不同的团队来进行开发，这样团队人员和开发进度将会是一个瓶颈。&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;混搭Web开发，首选是使用PhongGap、HTML5、CSS3、JavaScript。&lt;a href=&quot;http://phonegap.com/&quot;&gt;Phonegap&lt;/a&gt;是一个用基于HTML，CSS和JavaScript的，创建移动跨平台移动应用程序的快速开发平台。它使开发者能够利用iPhone，Android，Palm，Symbian，WP7，WP8，Bada和Blackberry智能手机的核心功能。目前几乎所有的Android和IOS系统的手机都支持HTML5和CSS3（唯一的差别就是个别比较旧的浏览器对某些特性不支持或支持的不完美）。&lt;/p&gt;
-
-&lt;h3&gt;信息推送信息&lt;/h3&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;自己开发信息推送？不建议，除非你的团队足够大或者有比较特殊的保密信息才建议自己开发。信息推送我们先说主流的手机平台（Android和IOS），Android和IOS的推送机制完成不一样，Android是手机应用于应用后台服务之间的通讯；IOS是基于苹果公司提供的消息推送服务(APNS)，其原理就是，第三方应用将要推送给用户的信息推送到苹果服务器，苹果服务器再通过统一的系统接口将这些信息推送到用户的手机上。&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;使用比较成熟的信息推送框架，会给我们的手机app开发带来不少的便利。这里推荐&lt;a href=&quot;https://www.jpush.cn/common/products&quot;&gt;极光推送&lt;/a&gt;，极光推送也是比较成熟的
-信息推送系统，其平台整合了Android推送、iOS推送的统一推送服务。一般企业用户使用其免费版本也就足够了，想要了解免费版和收费版的区别&lt;a href=&quot;https://www.jpush.cn/common/price&quot;&gt;请看这里&lt;/a&gt;，其它不多说，搞的好像给它做广告是的。&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;极光推送平台当然不是唯一的选择，还有&lt;a href=&quot;http://push.baidu.com/&quot;&gt;百度的云推送&lt;/a&gt;，推送（Push）是百度开放云向开发者提供的消息推送服务；通过利用云端与客户端之间建立稳定、可靠的长连接来为开发者提供向客户端应用推送实时消息的一种开发者服务。目前百度&amp;quot;云推送&amp;quot;服务是完全免费的，只支持 Android及iOS两个平台。也是这两年才推出的服务，相对来说是一个比较新的平台。本人还没怎么去研究其跟极光推送平台的差异和对比其优劣。不过我个人比较喜欢百度的开发服务平台，基本都是免费而且很全，如果是我选择的话，我会选择百度云推送。&lt;/p&gt;
-
-&lt;h3&gt;社会化分享&lt;/h3&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;社会化分享已经成为一个app必不可少的一个模块。新浪微博，腾讯微博，QQ空间，人人网，开心网，微信，QQ好友等平台的分享，难道我们都需要对每个平台进行对接吗，那我们的工作量和维护量得多大啊？刚刚才说百度的开发服务平台很全，现在就给你推荐它的另一个服务&lt;a href=&quot;http://developer.baidu.com/soc/share&quot;&gt;百度社会化分享组件&lt;/a&gt;，该组件有IOS、Android和Webapp三种模式。目前支持新浪微博、腾讯微博、QQ空间、开心网、微信好友、微信朋友圈进行分享，同时支持Android系统的邮件、短信同步分享。&lt;/p&gt;
-
-&lt;h3&gt;统计分析和监控&lt;/h3&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;统计分析这对app来说也是相当重要的一部分，它可以帮你更好的了解你的app的健康情况和用户分析等。这一方面百度的开发服务平台也提供了非常全面的服务，&lt;a href=&quot;http://tongji.baidu.com/web/welcome/login&quot;&gt;百度统计-网站统计&lt;/a&gt;、&lt;a href=&quot;http://mtj.baidu.com/web/welcome/login&quot;&gt;百度统计-移动统计&lt;/a&gt;等等。百度统计-网站统计&lt;a href=&quot;http://tongji.baidu.com/web/5473605/overview/multi?siteId=1942168&quot;&gt;演示地址&lt;/a&gt;，百度统计-移动统计&lt;a href=&quot;http://mtj.baidu.com/web/overview?appId=19&quot;&gt;演示地址&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h3&gt;应用测试与发布&lt;/h3&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;这么多手机型号，难道每一种手机型号都要买来测试吗？不用，咱们还是可以使用&lt;a href=&quot;http://mtc.baidu.com/mtc/&quot;&gt;百度移动云测试&lt;/a&gt;。对于一个app在内测阶段的app，怎么管理你的版本和快速测试呢，这&lt;a href=&quot;http://www.pgyer.com/&quot;&gt;蒲公英 - 免费的应用托管平台|App应用众测分发&lt;/a&gt;可以帮到你。&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;发布到应用市场，对于IOS来说就相对简单，因为都是必须在早苹果的App Store进行发布。而Android就不一样，每个厂商都搞自己应用市场，五花八门，一个个发布那是相当的麻烦，你也可以使用&lt;a href=&quot;https://www.zhuamob.com/&quot;&gt;抓猫&lt;/a&gt;，来进行统一发布。&lt;/p&gt;
 </content>
    </entry>
    
