@@ -64,7 +64,7 @@
                 {% if page.url == '/' and link.url == '/index' %}
                 {% assign active = 'active' %}
                 {% endif %}
-                <li class="{{ active }} {{ page.url }}">
+                <li class="{{ active }}">
                     <a href="{{ link.url }}.html">{{ link.text }}</a>{{ indicator }}
                 </li>
                 {% endfor %}
